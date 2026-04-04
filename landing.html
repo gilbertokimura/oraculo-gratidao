@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>365 Frases Prontas de Gratidão</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #030303;
+  --bg-alt: #050505;
+  --bg-card: rgba(255,255,255,0.02);
+  --violet: #8B5CF6;
+  --cyan: #06B6D4;
+  --emerald: #10B981;
+  --white: #ffffff;
+  --neutral-400: #a3a3a3;
+  --neutral-500: #737373;
+  --border: rgba(255,255,255,0.05);
+  --border-light: rgba(255,255,255,0.1);
+  --glass: rgba(10,10,10,0.7);
+  --ease-snap: cubic-bezier(0.23, 1, 0.32, 1);
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══ NAV ═══ */
+.nav {
+  position: fixed;
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 672px;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-light);
+  border-radius: 9999px;
+  padding: 0.65rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  transition: box-shadow 0.4s var(--ease-snap);
+}
+.nav:hover { box-shadow: 0 0 30px -10px rgba(139,92,246,0.15); }
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.nav-logo-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--violet), var(--cyan));
+  flex-shrink: 0;
+}
+.nav-logo-text {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+.nav-cta {
+  background: var(--white);
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: transform 0.3s var(--ease-snap), box-shadow 0.3s;
+  white-space: nowrap;
+}
+.nav-cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255,255,255,0.15);
+}
+
+/* ═══ AMBIENT ORBS ═══ */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  will-change: transform;
+}
+.orb-violet {
+  background: rgba(139,92,246,0.25);
+  width: clamp(250px, 40vw, 500px);
+  height: clamp(250px, 40vw, 500px);
+  animation: floatOrb 8s ease-in-out infinite alternate;
+}
+.orb-cyan {
+  background: rgba(6,182,212,0.12);
+  width: clamp(200px, 30vw, 400px);
+  height: clamp(200px, 30vw, 400px);
+  animation: floatOrb 12s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatOrb {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-25px) scale(1.06); }
+}
+
+/* ═══ HERO ═══ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 1.5rem 4rem;
+  overflow: hidden;
+}
+.hero .orb-violet { top: -10%; left: 30%; }
+.hero .orb-cyan { bottom: 10%; right: -5%; }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(139,92,246,0.1);
+  border: 1px solid rgba(139,92,246,0.25);
+  border-radius: 9999px;
+  padding: 0.4rem 1.1rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #c4b5fd;
+  margin-bottom: 2rem;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 0.8s var(--ease-snap) 0.2s forwards;
+}
+.hero-badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--emerald);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  max-width: 900px;
+  margin-bottom: 1.5rem;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 0.8s var(--ease-snap) 0.4s forwards;
+}
+.shimmer {
+  background: linear-gradient(90deg, #a78bfa 0%, #ffffff 40%, #ffffff 60%, #22d3ee 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerText 3s linear infinite;
+}
+@keyframes shimmerText {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.hero-sub {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  font-weight: 300;
+  color: var(--neutral-400);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 0.8s var(--ease-snap) 0.6s forwards;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 0.8s var(--ease-snap) 0.8s forwards;
+}
+
+/* ═══ SHINY BORDER BUTTON ═══ */
+.shiny-btn {
+  position: relative;
+  padding: 1px;
+  border-radius: 9999px;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+}
+.shiny-btn::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(from 0deg, transparent 0%, var(--violet) 40%, var(--cyan) 50%, transparent 60%);
+  animation: spinBorder 4s linear infinite;
+}
+@keyframes spinBorder {
+  100% { transform: rotate(360deg); }
+}
+.shiny-btn-inner {
+  position: relative;
+  z-index: 1;
+  display: block;
+  background: #0a0a0a;
+  border-radius: 9999px;
+  padding: 1rem 2.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: background 0.3s;
+}
+.shiny-btn:hover .shiny-btn-inner { background: #111; }
+
+.hero-link {
+  color: var(--neutral-500);
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.hero-link:hover { color: var(--neutral-400); }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ═══ TICKER ═══ */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(0,0,0,0.4);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 1rem 0;
+}
+.ticker {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: tickerScroll 35s linear infinite;
+}
+.ticker-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  flex-shrink: 0;
+}
+.ticker-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--neutral-500);
+  font-family: var(--font-sans);
+}
+.ticker-value {
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  letter-spacing: 0.02em;
+}
+.ticker-value.violet { color: var(--violet); }
+.ticker-value.cyan { color: var(--cyan); }
+.ticker-value.emerald { color: var(--emerald); }
+
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ═══ SECTIONS ═══ */
+section { position: relative; }
+
+.section-pad {
+  padding: clamp(4rem, 10vw, 7rem) 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--violet);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+/* ═══ FEATURE GRID ═══ */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
+.feature-card {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  border-radius: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  transition: transform 0.5s var(--ease-snap), border-color 0.4s, box-shadow 0.4s;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.feature-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.feature-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(139,92,246,0.3);
+  box-shadow: 0 0 30px -10px rgba(139,92,246,0.25);
+}
+
+.feature-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 1.25rem;
+  transition: transform 0.4s var(--ease-snap);
+}
+.feature-card:hover .feature-icon { transform: scale(1.1) rotate(-3deg); }
+.feature-icon.violet-bg { background: rgba(139,92,246,0.15); }
+.feature-icon.cyan-bg { background: rgba(6,182,212,0.15); }
+.feature-icon.emerald-bg { background: rgba(16,185,129,0.15); }
+
+.feature-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.65rem;
+}
+.feature-card p {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--neutral-400);
+  line-height: 1.65;
+}
+
+/* ═══ PAIN SECTION ═══ */
+.pain-section {
+  background: linear-gradient(180deg, var(--bg) 0%, #080808 100%);
+  text-align: center;
+}
+.pain-text {
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 300;
+  color: var(--neutral-400);
+  line-height: 1.9;
+}
+.pain-text strong {
+  color: var(--white);
+  font-weight: 500;
+}
+.pain-text em {
+  color: var(--violet);
+  font-style: normal;
+  font-weight: 400;
+}
+.pain-highlight {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 2rem 0;
+  font-style: italic;
+}
+
+/* ═══ TARGET AUDIENCE ═══ */
+.target-section {
+  border-top: 1px solid var(--border);
+}
+.target-list {
+  list-style: none;
+  max-width: 700px;
+  margin-top: 2rem;
+}
+.target-list li {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--neutral-400);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  line-height: 1.6;
+}
+.target-list li::before {
+  content: '→';
+  color: var(--violet);
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* ═══ EXPECT SECTION ═══ */
+.expect-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.expect-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.expect-card.visible { opacity: 1; transform: translateY(0); transition: all 0.6s var(--ease-snap); }
+.expect-num {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--violet);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.expect-card h4 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+.expect-card p {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--neutral-400);
+  line-height: 1.6;
+}
+
+/* ═══ BONUS ═══ */
+.bonus-section {
+  background: #050505;
+  border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.bonus-section .orb-violet { top: 20%; right: -10%; width: 300px; height: 300px; filter: blur(120px); }
+.bonus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.bonus-card {
+  background: rgba(139,92,246,0.04);
+  border: 1px solid rgba(139,92,246,0.12);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  transition: border-color 0.4s, box-shadow 0.4s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.bonus-card.visible { opacity: 1; transform: translateY(0); transition: all 0.6s var(--ease-snap); }
+.bonus-card:hover {
+  border-color: rgba(139,92,246,0.35);
+  box-shadow: 0 0 25px -10px rgba(139,92,246,0.2);
+}
+.bonus-tag {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--violet);
+  background: rgba(139,92,246,0.12);
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+.bonus-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+}
+.bonus-card p {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--neutral-400);
+  line-height: 1.65;
+}
+
+/* ═══ PRICING ═══ */
+.pricing-section {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.pricing-section .orb-cyan { bottom: 0; left: 20%; width: 350px; height: 350px; filter: blur(100px); }
+
+.pricing-compare {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--neutral-400);
+  max-width: 520px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+.pricing-compare strong { color: var(--white); font-weight: 500; }
+
+.pricing-box {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-light);
+  border-radius: 1.5rem;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3rem);
+  text-align: left;
+}
+.pricing-box ul {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+.pricing-box li {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--neutral-400);
+  padding: 0.55rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.pricing-box li .check {
+  color: var(--emerald);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.pricing-box li .gift {
+  color: var(--violet);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.price-row {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.price-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--neutral-500);
+  margin-bottom: 0.35rem;
+}
+.price-amount {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+.price-amount .currency { font-size: 0.5em; vertical-align: super; color: var(--neutral-400); }
+
+.pricing-cta {
+  display: block;
+  text-align: center;
+}
+
+/* ═══ FAQ ═══ */
+.faq-section {
+  border-top: 1px solid var(--border);
+}
+.faq-list {
+  max-width: 700px;
+  margin-top: 2.5rem;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: left;
+  padding: 1.25rem 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.faq-q::after {
+  content: '+';
+  font-size: 1.25rem;
+  color: var(--violet);
+  transition: transform 0.3s var(--ease-snap);
+  flex-shrink: 0;
+}
+.faq-item.open .faq-q::after { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease-snap), padding 0.3s;
+}
+.faq-item.open .faq-a { max-height: 200px; }
+.faq-a p {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--neutral-400);
+  line-height: 1.65;
+  padding-bottom: 1.25rem;
+}
+
+/* ═══ FOOTER ═══ */
+.footer {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  padding: 3rem 1.5rem 1.5rem;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-brand {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+.footer-copy {
+  font-size: 0.72rem;
+  color: var(--neutral-500);
+}
+.footer-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  color: var(--emerald);
+}
+.footer-status-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--emerald);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ═══ MOBILE ═══ */
+@media (max-width: 768px) {
+  .nav { width: 94%; padding: 0.55rem 1rem; top: 0.75rem; }
+  .nav-logo-text { font-size: 0.9rem; }
+  .nav-cta { font-size: 0.65rem; padding: 0.45rem 1rem; }
+
+  .hero { padding: 7rem 1.25rem 3rem; min-height: auto; }
+  .hero h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
+
+  .features-grid, .expect-grid, .bonus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-pad { padding: 3.5rem 1.25rem; }
+  .pricing-box { padding: 1.75rem; }
+}
+
+@media (max-width: 400px) {
+  .hero h1 { font-size: 2rem; }
+  .hero-sub { font-size: 0.9rem; }
+  .shiny-btn-inner { padding: 0.85rem 1.8rem; font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-dot"></span>
+    <span class="nav-logo-text">365 Gratidão</span>
+  </a>
+  <a href="#pricing" class="nav-cta">Começar Agora</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="orb orb-violet"></div>
+  <div class="orb orb-cyan"></div>
+
+  <div class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    Método comprovado · 365 dias
+  </div>
+
+  <h1>365 Frases Prontas de Gratidão: Um Ano Inteiro <span class="shimmer">Sem Travar</span></h1>
+
+  <p class="hero-sub">Escreva todos os dias por 365 dias usando frases prontas e direcionadas — mesmo que você nunca tenha conseguido manter constância.</p>
+
+  <div class="hero-actions">
+    <a href="#pricing" class="shiny-btn">
+      <span class="shiny-btn-inner">Começar Meu Hábito de Gratidão</span>
+    </a>
+    <a href="#features" class="hero-link">Veja o que está incluso ↓</a>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker">
+    <div class="ticker-item"><span class="ticker-label">Frases</span><span class="ticker-value violet">365</span></div>
+    <div class="ticker-item"><span class="ticker-label">Minutos/Dia</span><span class="ticker-value cyan">5</span></div>
+    <div class="ticker-item"><span class="ticker-label">Bônus</span><span class="ticker-value emerald">3</span></div>
+    <div class="ticker-item"><span class="ticker-label">Garantia</span><span class="ticker-value">Total</span></div>
+    <div class="ticker-item"><span class="ticker-label">Acesso</span><span class="ticker-value violet">Imediato</span></div>
+    <div class="ticker-item"><span class="ticker-label">Formato</span><span class="ticker-value cyan">Digital</span></div>
+    <div class="ticker-item"><span class="ticker-label">Hábito</span><span class="ticker-value emerald">Automático</span></div>
+    <div class="ticker-item"><span class="ticker-label">Bloqueio</span><span class="ticker-value">Zero</span></div>
+    <!-- duplicado para loop -->
+    <div class="ticker-item"><span class="ticker-label">Frases</span><span class="ticker-value violet">365</span></div>
+    <div class="ticker-item"><span class="ticker-label">Minutos/Dia</span><span class="ticker-value cyan">5</span></div>
+    <div class="ticker-item"><span class="ticker-label">Bônus</span><span class="ticker-value emerald">3</span></div>
+    <div class="ticker-item"><span class="ticker-label">Garantia</span><span class="ticker-value">Total</span></div>
+    <div class="ticker-item"><span class="ticker-label">Acesso</span><span class="ticker-value violet">Imediato</span></div>
+    <div class="ticker-item"><span class="ticker-label">Formato</span><span class="ticker-value cyan">Digital</span></div>
+    <div class="ticker-item"><span class="ticker-label">Hábito</span><span class="ticker-value emerald">Automático</span></div>
+    <div class="ticker-item"><span class="ticker-label">Bloqueio</span><span class="ticker-value">Zero</span></div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="section-pad">
+    <span class="section-label">O que você vai desbloquear</span>
+    <h2 class="section-title">Tudo que você precisa para <span class="shimmer">nunca mais travar</span></h2>
+
+    <div class="features-grid">
+      <div class="feature-card" data-anim>
+        <div class="feature-icon violet-bg">📝</div>
+        <h3>365 Frases Prontas</h3>
+        <p>Um banco completo de frases que elimina o bloqueio da página em branco — e cria a sensação imediata de progresso e disciplina.</p>
+      </div>
+      <div class="feature-card" data-anim>
+        <div class="feature-icon cyan-bg">🧭</div>
+        <h3>Roteiro Diário de Escrita</h3>
+        <p>Uma sequência simples que guia sua mente todos os dias — reduzindo ansiedade e trazendo sensação de controle sobre a própria vida.</p>
+      </div>
+      <div class="feature-card" data-anim>
+        <div class="feature-icon emerald-bg">🔒</div>
+        <h3>Sistema Anti-Desistência</h3>
+        <p>Gatilhos mentais que mantêm você escrevendo mesmo sem vontade — criando consistência real e orgulho pessoal.</p>
+      </div>
+      <div class="feature-card" data-anim>
+        <div class="feature-icon violet-bg">⚡</div>
+        <h3>Modelo de 5 Minutos</h3>
+        <p>Um formato rápido que encaixa em qualquer rotina — e gera sensação de missão cumprida logo pela manhã ou antes de dormir.</p>
+      </div>
+      <div class="feature-card" data-anim>
+        <div class="feature-icon cyan-bg">📈</div>
+        <h3>Evolução Emocional</h3>
+        <p>Um caminho estruturado que fortalece sua mente, sua fé e sua confiança — transformando gratidão em hábito automático.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain-section">
+  <div class="section-pad" style="text-align:center;">
+    <span class="section-label">A verdade que ninguém conta</span>
+    <h2 class="section-title">Nunca mais fique olhando para o caderno <span class="shimmer">sem saber o que escrever</span></h2>
+
+    <div class="pain-text" style="margin-top:2.5rem;">
+      <p>Quantas vezes você <strong>começou… e parou no terceiro dia?</strong></p>
+      <p style="margin-top:1rem;">Quantas vezes abriu o caderno… <strong>e travou?</strong></p>
+      <p style="margin-top:1.5rem;">Não por falta de vontade. Não por falta de fé.<br>Mas porque <strong>sua mente cansou de tentar sozinha.</strong></p>
+
+      <p class="pain-highlight">Não é a gratidão que falha.<br><em>É a falta de direção.</em></p>
+
+      <p>Sem um caminho claro, qualquer hábito morre.<br>Sem um roteiro simples, qualquer motivação desaparece.</p>
+      <p style="margin-top:1.5rem;"><strong>Por isso esse método existe.</strong><br>Para tirar você do improviso… e colocar sua vida <em>no automático.</em></p>
+      <p style="margin-top:1.5rem;">Aqui, você não precisa pensar. Não precisa inventar.<br>Você só precisa abrir… <strong>e escrever.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- TARGET -->
+<section class="target-section">
+  <div class="section-pad">
+    <span class="section-label">Para quem é</span>
+    <h2 class="section-title">Feito para quem quer <span class="shimmer">constância real</span></h2>
+
+    <ul class="target-list">
+      <li>Para quem começa cheia de vontade… e desiste depois de alguns dias</li>
+      <li>Para quem quer criar o hábito da gratidão, mas trava na hora de escrever</li>
+      <li>Para quem sente que precisa de mais paz, foco e direção na vida</li>
+      <li>Para quem quer disciplina emocional sem esforço mental pesado</li>
+      <li>Para quem deseja constância real — não motivação passageira</li>
+    </ul>
+  </div>
+</section>
+
+<!-- EXPECT -->
+<section>
+  <div class="section-pad">
+    <span class="section-label">O que esperar</span>
+    <h2 class="section-title">Resultados que você vai <span class="shimmer">sentir</span></h2>
+
+    <div class="expect-grid">
+      <div class="expect-card" data-anim>
+        <span class="expect-num">1</span>
+        <div>
+          <h4>Hábito diário de escrita</h4>
+          <p>Sentir orgulho da própria disciplina e confiança crescente a cada dia.</p>
+        </div>
+      </div>
+      <div class="expect-card" data-anim>
+        <span class="expect-num">2</span>
+        <div>
+          <h4>Menos ansiedade</h4>
+          <p>Substituir reclamação automática por foco positivo e clareza mental.</p>
+        </div>
+      </div>
+      <div class="expect-card" data-anim>
+        <span class="expect-num">3</span>
+        <div>
+          <h4>Progresso real</h4>
+          <p>Perceber pequenas mudanças acontecendo e recuperar a sensação de controle.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUS -->
+<section class="bonus-section">
+  <div class="orb orb-violet"></div>
+  <div class="section-pad">
+    <span class="section-label">Inclusos gratuitamente</span>
+    <h2 class="section-title">Bônus <span class="shimmer">Exclusivos</span></h2>
+
+    <div class="bonus-grid">
+      <div class="bonus-card" data-anim>
+        <span class="bonus-tag">Bônus #1</span>
+        <h3>30 Perguntas Poderosas de Gratidão Profunda</h3>
+        <p>Perguntas criadas para acessar emoções que você nem percebe no dia a dia. Aprofundam sua consciência e aceleram a transformação emocional.</p>
+      </div>
+      <div class="bonus-card" data-anim>
+        <span class="bonus-tag">Bônus #2</span>
+        <h3>Calendário Visual de Hábitos</h3>
+        <p>Um sistema simples e visual que elimina a desculpa da desorganização. Acompanhe sua evolução dia após dia e sinta prazer em manter a sequência viva.</p>
+      </div>
+      <div class="bonus-card" data-anim>
+        <span class="bonus-tag">Bônus #3</span>
+        <h3>Ritual de Emergência Para Dias Difíceis</h3>
+        <p>Um protocolo rápido para quando bater desânimo, tristeza ou preguiça. Aplicação imediata. Resultado visível. O hábito sobrevive até nos dias ruins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-pad">
+    <span class="section-label">Investimento</span>
+    <h2 class="section-title">Tudo isso por <span class="shimmer">um valor único</span></h2>
+
+    <p class="pricing-compare">Se você fosse contratar um coach emocional, terapeuta ou curso de desenvolvimento pessoal… gastaria facilmente <strong>R$500, R$1.000 ou até R$2.000</strong>.</p>
+
+    <div class="pricing-box">
+      <ul>
+        <li><span class="check">✓</span> 365 Frases Prontas de Gratidão</li>
+        <li><span class="check">✓</span> Roteiro Diário de Escrita Automática</li>
+        <li><span class="check">✓</span> Sistema Anti-Desistência</li>
+        <li><span class="check">✓</span> Modelo de Escrita de 5 Minutos</li>
+        <li><span class="gift">🎁</span> 30 Perguntas Poderosas de Gratidão</li>
+        <li><span class="gift">🎁</span> Calendário Visual de Hábitos</li>
+        <li><span class="gift">🎁</span> Ritual de Emergência Para Dias Difíceis</li>
+      </ul>
+
+      <div class="price-row">
+        <div class="price-label">Tudo isso por apenas</div>
+        <div class="price-amount"><span class="currency">R$</span>37<span style="font-size:0.5em;color:var(--neutral-400)">,00</span></div>
+      </div>
+
+      <a href="#" class="shiny-btn pricing-cta" style="width:100%;">
+        <span class="shiny-btn-inner" style="display:block;text-align:center;width:100%;">Começar Agora Meu Hábito de Gratidão</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-pad">
+    <span class="section-label">Dúvidas frequentes</span>
+    <h2 class="section-title">Perguntas <span class="shimmer">Frequentes</span></h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Preciso ter experiência com escrita?</button>
+        <div class="faq-a"><p>Não. O método foi feito para qualquer pessoa — inclusive iniciantes.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Preciso escrever muito tempo por dia?</button>
+        <div class="faq-a"><p>Não. A média é de apenas 5 minutos.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">E se eu perder um dia?</button>
+        <div class="faq-a"><p>O sistema inclui estratégias para retomar rapidamente sem culpa ou frustração.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Isso realmente cria hábito?</button>
+        <div class="faq-a"><p>Sim. O método foi estruturado para gerar repetição simples — o fator número 1 na criação de hábitos.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Tem garantia?</button>
+        <div class="faq-a"><p>Sim. Se você não gostar, pode pedir reembolso dentro do prazo estabelecido.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">365 Gratidão</div>
+      <div class="footer-copy">© 2026 · Todos os direitos reservados</div>
+    </div>
+    <div class="footer-status">
+      <span class="footer-status-dot"></span>
+      Acesso Disponível
+    </div>
+  </div>
+</footer>
+
+<script>
+// FAQ toggle
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const siblings = Array.from(el.parentElement.querySelectorAll('[data-anim]'));
+      const idx = siblings.indexOf(el);
+      el.style.transitionDelay = `${idx * 0.12}s`;
+      el.style.transition = `all 0.7s var(--ease-snap)`;
+      el.classList.add('visible');
+      observer.unobserve(el);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
