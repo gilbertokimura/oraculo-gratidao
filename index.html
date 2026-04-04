@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oráculo da Gratidão 365 - Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="importmap">
+    {
+        "imports": {
+            "react": "https://esm.sh/react@18.2.0",
+            "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+            "lucide-react": "https://esm.sh/lucide-react@0.344.0",
+            "clsx": "https://esm.sh/clsx@2.1.0",
+            "tailwind-merge": "https://esm.sh/tailwind-merge@2.2.1"
+        }
+    }
+    </script>
+</head>
+<body class="bg-[#1a1512]">
+    <div id="root"></div>
+
+    <script type="text/babel" data-type="module">
+        import React, { useState, useEffect, useMemo, useRef } from 'react';
+        import { createRoot } from 'react-dom/client';
+        import { 
+            Sparkles, CheckCircle, Trophy, Save, Quote, LockKeyhole, 
+            UnlockKeyhole, PenLine, Calendar, HelpCircle, Zap, 
+            ChevronDown, ChevronUp, ArrowRight, BookOpen, ArrowLeft, 
+            Volume2, VolumeX, Leaf, Sun, Moon, Star, Heart, Feather,
+            Compass, TrendingUp, Activity, Users, Target, Award, RotateCcw, Check
+        } from 'lucide-react';
+        import { clsx } from 'clsx';
+        import { twMerge } from 'tailwind-merge';
+
+        function cn(...inputs) {
+            return twMerge(clsx(inputs));
+        }
+
+        // --- CONSTANTES DO ORÁCULO ---
+        const FRASES_ORACULO = [
+            "Qual foi a pequena vitória de hoje que quase passou despercebida?",
+            "Agradeço pela oportunidade de recomeçar a cada novo amanhecer.",
+            "Sou grato pelas pessoas que trazem luz aos meus dias mais nublados.",
+            "Quem te fez sorrir hoje e por quê?",
+            "Que desafio você enfrentou hoje que te deixou mais forte?",
+            "Agradeço pela saúde que me permite experimentar a vida.",
+            "Qual foi a coisa mais bonita que você viu hoje?",
+            "Sou grato pelo alimento na minha mesa e pelo teto que me protege.",
+            "Que oportunidade de aprender algo novo você teve nas últimas 24 horas?",
+            "Agradeço pela paz de espírito que estou cultivando.",
+            "O que há de bom na sua vida que você já se acostumou e esqueceu de valorizar?",
+            "Qual abraço ou toque te fez sentir acolhido recentemente?",
+            "Se você escrevesse uma carta de agradecimento ao dia de hoje, o que diria?",
+            "Que parte do seu corpo trabalhou sem parar por você hoje?",
+            "Qual cheiro te trouxe conforto ou uma boa lembrança hoje?",
+            "Que conversa recente te fez pensar de um jeito diferente?",
+            "Qual rotina simples do seu dia torna tudo mais leve?",
+            "Que lugar no mundo te faz sentir em paz só de lembrar?",
+            "Qual foi a última vez que você riu de verdade? Do que foi?",
+            "Que permissão você se deu hoje que te fez bem?",
+            "Quem é a pessoa que mais te entende sem precisar de palavras?",
+            "Que mensagem ou ligação inesperada te alegrou nos últimos dias?",
+            "Se pudesse reviver um momento feliz com alguém, qual seria?",
+            "Qual professor, mentor ou amigo plantou uma semente que você colhe até hoje?",
+            "Quem te ensinou algo importante sem nem perceber que estava ensinando?",
+            "Que ato de generosidade você presenciou recentemente?",
+            "Qual amizade, mesmo de longe, te dá segurança só de saber que existe?",
+            "Quem você admira pela forma como enfrenta a vida?",
+            "Que palavras de encorajamento você ouviu e nunca esqueceu?",
+            "Por qual relação na sua vida você sente mais gratidão agora?",
+            "Quando foi a última vez que o céu te deixou sem palavras?",
+            "Que som da natureza te acalma instantaneamente?",
+            "Qual estação do ano te faz sentir mais vivo e por quê?",
+            "Que planta, árvore ou flor te chamou a atenção recentemente?",
+            "Qual foi o pôr do sol ou nascer do sol mais bonito que você lembra?",
+            "Que momento de silêncio te trouxe clareza nos últimos dias?",
+            "A chuva de hoje trouxe alguma sensação boa? Qual?",
+            "Que animal te arrancou um sorriso recentemente?",
+            "Qual paisagem você gostaria de ver de novo?",
+            "O que a natureza te ensinou sobre paciência?",
+            "Que versão passada de você ficaria orgulhosa de quem você é hoje?",
+            "Qual medo você já superou que antes parecia impossível?",
+            "Que cicatriz, física ou emocional, te lembra da sua resiliência?",
+            "Qual decisão difícil do passado se revelou acertada com o tempo?",
+            "Que hábito novo está mudando sua vida aos poucos?",
+            "Qual limite você aprendeu a colocar que te trouxe mais paz?",
+            "Que livro, filme ou música te transformou de alguma forma?",
+            "Qual fracasso te ensinou a lição mais valiosa da sua vida?",
+            "Que coragem pequena você teve hoje que ninguém viu?",
+            "Pelo que você vai agradecer ao olhar para trás daqui a um ano?",
+            "Qual foi o primeiro pensamento bom que você teve ao acordar hoje?",
+            "Que sabor te trouxe felicidade nas últimas horas?",
+            "Qual música tocou e pareceu ter sido feita para o seu momento?",
+            "Que gargalhada você deu que relaxou todo o seu corpo?",
+            "Qual foi o momento mais tranquilo do seu dia até agora?",
+            "Que pequeno luxo do dia a dia te faz sentir especial?",
+            "Qual foi a melhor notícia que você recebeu esta semana?",
+            "Que detalhe bonito você notou hoje que a maioria ignoraria?",
+            "Qual sensação de conforto você sentiu hoje — um café quente, um cobertor, um banho longo?",
+            "Se o dia de hoje fosse um presente, qual seria o laço que o embrulha?"
+        ];
+
+        const PERGUNTAS_PODEROSAS = [
+            "Qual foi a pequena vitória de hoje que quase passou despercebida?",
+            "Quem te fez sorrir hoje e por quê?",
+            "Que desafio você enfrentou hoje que te deixou mais forte?",
+            "Qual foi a coisa mais bonita que você viu hoje?",
+            "Que oportunidade de aprender algo novo você teve nas últimas 24 horas?",
+            "Pelo que você é grato(a) no seu corpo hoje?",
+            "Qual é a música ou som que te trouxe paz recentemente?",
+            "O que deu mais certo do que você esperava hoje?",
+            "Se pudesse agradecer a alguém do seu passado, quem seria?",
+            "Qual é o conforto material que você mais valoriza agora?",
+            "Qual talento ou habilidade sua te ajudou hoje?",
+            "Qual foi o gesto de gentileza (dado ou recebido) que marcou seu dia?",
+            "O que te deixa animado(a) para o dia de amanhã?",
+            "Qual erro você cometeu recentemente que trouxe uma lição valiosa?",
+            "Pelo que você é grato(a) na sua casa neste momento?",
+            "Qual foi o momento de maior paz que você sentiu hoje?",
+            "Qual habilidade sua você usou hoje, mas que às vezes nem valoriza tanto?",
+            "Qual refeição ou comidinha você mais curtiu nas últimas 24 horas?",
+            "Que detalhe da natureza chamou sua atenção hoje?",
+            "Se tivesse que se agradecer por algo que fez hoje, o que seria?",
+            "Que tecnologia ou ferramenta facilitou sua vida hoje?",
+            "Qual memória de infância traz um quentinho pro coração e te faz sentir gratidão?",
+            "Que frase, livro ou ideia te inspirou recentemente?",
+            "Em que momento você se sentiu mais útil ou produtivo(a) hoje?",
+            "Pelo que você é grato(a) no seu trabalho ou estudos?",
+            "Qual traço da sua personalidade te ajudou a superar um obstáculo hoje?",
+            "Quem é aquela pessoa que sempre te apoia, e por que você é grato(a) por ela hoje?",
+            "Qual som gostoso você ouviu hoje (chuva, riso, música)?",
+            "Qual privilégio que você tem hoje facilita muito a sua rotina?",
+            "O que te dá esperança para o futuro neste exato momento?"
+        ];
+
+        // --- CONSTANTES DA BÚSSOLA ---
+        const BUSSOLA_CATEGORIES = {
+            autoestima: {
+                id: 'autoestima', title: 'Autoestima', icon: Heart,
+                color: 'text-rose-400', bgColor: 'bg-rose-900/20', barColor: 'bg-rose-500',
+                affirmations: [
+                    "Eu sou suficiente exatamente como sou hoje.",
+                    "Meu valor não depende da opinião dos outros.",
+                    "Eu mereço amor, respeito e felicidade.",
+                    "Cada dia eu me torno uma versão melhor de mim.",
+                    "Eu me aceito com todas as minhas imperfeições.",
+                    "Minhas qualidades são únicas e valiosas.",
+                    "Eu confio na minha capacidade de superar desafios."
+                ]
+            },
+            prosperidade: {
+                id: 'prosperidade', title: 'Prosperidade', icon: TrendingUp,
+                color: 'text-emerald-400', bgColor: 'bg-emerald-900/20', barColor: 'bg-emerald-500',
+                affirmations: [
+                    "A abundância flui naturalmente para minha vida.",
+                    "Eu mereço prosperar em todas as áreas.",
+                    "Meu trabalho gera valor e é recompensado.",
+                    "Eu atraio oportunidades com minha energia positiva.",
+                    "O dinheiro é uma ferramenta que eu uso com sabedoria.",
+                    "Eu sou grato(a) por tudo que já conquistei.",
+                    "Novas portas se abrem para mim todos os dias."
+                ]
+            },
+            saude: {
+                id: 'saude', title: 'Saúde', icon: Activity,
+                color: 'text-blue-400', bgColor: 'bg-blue-900/20', barColor: 'bg-blue-500',
+                affirmations: [
+                    "Meu corpo é meu templo e eu cuido dele com amor.",
+                    "Cada célula do meu corpo vibra saúde e vitalidade.",
+                    "Eu escolho alimentos que nutrem meu corpo e mente.",
+                    "Meu sono é reparador e restaura toda a minha energia.",
+                    "Eu respiro profundamente e me conecto com a calma.",
+                    "Meu sistema imunológico é forte e me protege.",
+                    "Eu agradeço por cada batida do meu coração."
+                ]
+            },
+            relacionamentos: {
+                id: 'relacionamentos', title: 'Relacionamentos', icon: Users,
+                color: 'text-purple-400', bgColor: 'bg-purple-900/20', barColor: 'bg-purple-500',
+                affirmations: [
+                    "Eu atraio pessoas que me valorizam e respeitam.",
+                    "Meus relacionamentos são fontes de alegria e crescimento.",
+                    "Eu me comunico com clareza, empatia e amor.",
+                    "Sou grato(a) pelas pessoas que caminham comigo.",
+                    "Eu mereço relações saudáveis e equilibradas.",
+                    "Minha presença é um presente para quem está ao meu lado.",
+                    "Eu perdoo para me libertar, não para aceitar o inaceitável."
+                ]
+            },
+            proposito: {
+                id: 'proposito', title: 'Propósito', icon: Star,
+                color: 'text-amber-400', bgColor: 'bg-amber-900/20', barColor: 'bg-amber-500',
+                affirmations: [
+                    "Eu tenho um propósito que só eu posso cumprir.",
+                    "Minha vida tem significado e direção.",
+                    "Eu confio que estou exatamente onde preciso estar.",
+                    "Cada experiência me prepara para algo maior.",
+                    "Eu sigo minha intuição com fé e coragem.",
+                    "Meu propósito se revela um passo de cada vez.",
+                    "Eu faço do mundo um lugar melhor com minhas ações."
+                ]
+            }
+        };
+
+        const getEmojiForScore = (score) => {
+            if (score <= 3) return "🌪️";
+            if (score <= 6) return "🌱";
+            if (score <= 8) return "☀️";
+            return "✨";
+        };
+
+        // --- COMPONENTE BÚSSOLA ---
+        const VibrationCompass = () => {
+            const [step, setStep] = useState('assessment');
+            const [scores, setScores] = useState({
+                autoestima: 5, prosperidade: 5, saude: 5, relacionamentos: 5, proposito: 5
+            });
+            const [focusArea, setFocusArea] = useState(null);
+            const [planProgress, setPlanProgress] = useState([]);
+            const [isAnalyzing, setIsAnalyzing] = useState(false);
+
+            useEffect(() => {
+                const savedData = localStorage.getItem('bussolaVibracaoDataV2');
+                if (savedData) {
+                    try {
+                        const parsed = JSON.parse(savedData);
+                        setScores(parsed.scores);
+                        if (parsed.focusArea) {
+                            setFocusArea(parsed.focusArea);
+                            setPlanProgress(parsed.planProgress || []);
+                            setStep('plan');
+                        }
+                    } catch (e) { console.error(e); }
+                }
+            }, []);
+
+            const saveState = (newScores, newFocus, newProgress, newStep) => {
+                localStorage.setItem('bussolaVibracaoDataV2', JSON.stringify({
+                    scores: newScores, focusArea: newFocus, planProgress: newProgress
+                }));
+            };
+
+            const analyzeScores = () => {
+                setIsAnalyzing(true);
+                setStep('results');
+                setTimeout(() => {
+                    let lowestScore = 11;
+                    let lowestCategory = 'autoestima';
+                    Object.entries(scores).forEach(([key, value]) => {
+                        if (value < lowestScore) {
+                            lowestScore = value;
+                            lowestCategory = key;
+                        }
+                    });
+                    setFocusArea(lowestCategory);
+                    setIsAnalyzing(false);
+                    saveState(scores, lowestCategory, new Array(7).fill(false), 'results');
+                }, 1500);
+            };
+
+            const toggleDay = (index) => {
+                const newProgress = [...planProgress];
+                newProgress[index] = !newProgress[index];
+                setPlanProgress(newProgress);
+                saveState(scores, focusArea, newProgress, 'plan');
+            };
+
+            const reset = () => {
+                const initial = { autoestima: 5, prosperidade: 5, saude: 5, relacionamentos: 5, proposito: 5 };
+                setScores(initial);
+                setFocusArea(null);
+                setPlanProgress([]);
+                setStep('assessment');
+                localStorage.removeItem('bussolaVibracaoDataV2');
+            };
+
+            if (isAnalyzing) {
+                return (
+                    <div className="p-10 text-center flex flex-col items-center justify-center min-h-[300px] animate-reveal">
+                        <Compass size={48} className="text-amber-500 animate-spin mb-4" />
+                        <h4 className="text-[#e8ddd0] font-bold text-lg">Sintonizando sua energia...</h4>
+                    </div>
+                );
+            }
+
+            if (step === 'assessment') {
+                return (
+                    <div className="p-5 sm:p-6 bg-[#1e1a16] border-t border-[#3a3028] animate-reveal">
+                        <div className="mb-6">
+                            <h4 className="font-bold text-amber-400 text-base mb-1">Como você está hoje?</h4>
+                            <p className="text-xs text-[#8a7e6d]">Deslize para avaliar cada área da sua vida.</p>
+                        </div>
+                        <div className="space-y-4">
+                            {Object.entries(BUSSOLA_CATEGORIES).map(([key, cat]) => (
+                                <div key={key} className="bg-[#2a2420] p-4 rounded-xl border border-[#3a3028]">
+                                    <div className="flex justify-between items-center mb-3">
+                                        <div className="flex items-center gap-2">
+                                            <cat.icon size={16} className={cat.color} />
+                                            <span className="text-xs font-bold text-[#c4b8a8]">{cat.title}</span>
+                                        </div>
+                                        <span className="text-sm font-black text-amber-500">{scores[key]}</span>
+                                    </div>
+                                    <input 
+                                        type="range" min="0" max="10" value={scores[key]}
+                                        onChange={(e) => setScores({...scores, [key]: parseInt(e.target.value)})}
+                                        className="w-full accent-amber-600 h-1.5 bg-[#1a1512] rounded-full appearance-none cursor-pointer"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                        <button onClick={analyzeScores} className="w-full mt-6 bg-amber-600 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2">
+                            Gerar Diagnóstico <ArrowRight size={16} />
+                        </button>
+                    </div>
+                );
+            }
+
+            if (step === 'results' || step === 'plan') {
+                const focusData = BUSSOLA_CATEGORIES[focusArea];
+                const completedDays = planProgress.filter(Boolean).length;
+
+                return (
+                    <div className="p-5 sm:p-6 bg-[#1e1a16] border-t border-[#3a3028] animate-reveal">
+                        <div className="bg-amber-900/20 border border-amber-800/30 rounded-2xl p-5 mb-6 text-center">
+                            <div className={`w-12 h-12 ${focusData.bgColor} ${focusData.color} rounded-full flex items-center justify-center mx-auto mb-3`}>
+                                <focusData.icon size={24} />
+                            </div>
+                            <h4 className="font-bold text-[#e8ddd0] mb-1">Foco de Expansão: {focusData.title}</h4>
+                            <p className="text-xs text-[#8a7e6d]">Reprogramando sua vibração em 7 dias.</p>
+                        </div>
+
+                        <div className="space-y-3 mb-6">
+                            {focusData.affirmations.map((aff, i) => {
+                                const isDone = planProgress[i];
+                                const isLocked = !isDone && i > 0 && !planProgress[i-1];
+                                return (
+                                    <button 
+                                        key={i} 
+                                        disabled={isLocked}
+                                        onClick={() => toggleDay(i)}
+                                        className={cn(
+                                            "w-full text-left p-4 rounded-xl border transition-all flex items-start gap-3",
+                                            isDone ? "bg-emerald-900/10 border-emerald-800/30 text-emerald-400 opacity-60" : 
+                                            isLocked ? "bg-[#2a2420] border-[#3a3028] text-[#5a5045] opacity-40 cursor-not-allowed" :
+                                            "bg-[#2a2420] border-amber-800/50 text-[#c4b8a8]"
+                                        )}
+                                    >
+                                        <div className={cn("w-5 h-5 rounded-full border flex items-center justify-center shrink-0 mt-0.5", isDone ? "bg-emerald-500 border-emerald-500 text-black" : "border-[#5a5045]")}>
+                                            {isDone ? <Check size={12} strokeWidth={4} /> : <span className="text-[10px]">{i+1}</span>}
+                                        </div>
+                                        <span className={cn("text-xs font-medium", isDone && "line-through")}>"{aff}"</span>
+                                    </button>
+                                );
+                            })}
+                        </div>
+
+                        {completedDays === 7 && (
+                            <div className="bg-emerald-900/20 border border-emerald-800/30 p-4 rounded-xl text-center mb-6">
+                                <Award className="mx-auto text-emerald-400 mb-2" size={32} />
+                                <p className="text-sm font-bold text-emerald-400">Jornada Concluída!</p>
+                            </div>
+                        )}
+
+                        <button onClick={reset} className="w-full py-3 text-[10px] font-bold text-[#8a7e6d] hover:text-amber-400 uppercase tracking-widest flex items-center justify-center gap-2 border-t border-[#3a3028]">
+                            <RotateCcw size={14} /> Recomeçar Diagnóstico
+                        </button>
+                    </div>
+                );
+            }
+            return null;
+        };
+
+        // --- APP PRINCIPAL ---
+        function App() {
+            const [isRevealed, setIsRevealed] = useState(false);
+            const [currentView, setCurrentView] = useState('home'); 
+            const [entry, setEntry] = useState("");
+            const [savedEntries, setSavedEntries] = useState({});
+            const [streak, setStreak] = useState(0);
+            const [isSaved, setIsSaved] = useState(false);
+            const [todayPhrase, setTodayPhrase] = useState("");
+            const [userName, setUserName] = useState("");
+            const [tempName, setTempName] = useState("");
+            const [showOnboarding, setShowOnboarding] = useState(false);
+            const [activeBonus, setActiveBonus] = useState(null);
+
+            const now = new Date();
+            const todayKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+            const jaEscreveuHoje = !!savedEntries[todayKey];
+
+            const sortearFrase = () => {
+                const randomIndex = Math.floor(Math.random() * FRASES_ORACULO.length);
+                setTodayPhrase(FRASES_ORACULO[randomIndex]);
+            };
+
+            useEffect(() => {
+                const storedData = localStorage.getItem('oraculo_gratidao');
+                sortearFrase();
+                if (storedData) {
+                    const parsed = JSON.parse(storedData);
+                    setSavedEntries(parsed.entries || {});
+                    setStreak(parsed.streak || 0);
+                    if (parsed.userName) setUserName(parsed.userName);
+                    else setShowOnboarding(true);
+                    if (parsed.entries && parsed.entries[todayKey]) setIsRevealed(true);
+                } else {
+                    setShowOnboarding(true);
+                }
+            }, [todayKey]);
+
+            const saveName = () => {
+                if (!tempName.trim()) return;
+                setUserName(tempName);
+                setShowOnboarding(false);
+                const storedData = JSON.parse(localStorage.getItem('oraculo_gratidao') || '{}');
+                localStorage.setItem('oraculo_gratidao', JSON.stringify({ ...storedData, userName: tempName }));
+            };
+
+            const getGreeting = () => {
+                const hour = new Date().getHours();
+                if (hour >= 5 && hour < 12) return "Bom dia";
+                if (hour >= 12 && hour < 18) return "Boa tarde";
+                return "Boa noite";
+            };
+
+            const saveEntry = () => {
+                if (!entry.trim()) return;
+                const textoAnterior = savedEntries[todayKey] || "";
+                const textoFinal = textoAnterior ? `${textoAnterior}\n\n${entry}` : entry;
+                const newEntries = { ...savedEntries, [todayKey]: textoFinal };
+                let newStreak = streak;
+                if (!savedEntries[todayKey]) newStreak += 1;
+                
+                const storedData = JSON.parse(localStorage.getItem('oraculo_gratidao') || '{}');
+                localStorage.setItem('oraculo_gratidao', JSON.stringify({ ...storedData, entries: newEntries, streak: newStreak, userName }));
+                
+                setSavedEntries(newEntries);
+                setStreak(newStreak);
+                setIsSaved(true);
+                setTimeout(() => {
+                    setIsSaved(false);
+                    setEntry(""); 
+                    setIsRevealed(false); 
+                    sortearFrase(); 
+                    setCurrentView('history');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 1200);
+            };
+
+            const injectQuestion = (question) => {
+                setEntry(prev => prev ? `${prev}\n\n${question} ` : `${question} `);
+                setIsRevealed(true); 
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+
+            // --- SUB-COMPONENTS DE BÔNUS EXISTENTES ---
+            const HabitCalendar = () => {
+                const now = new Date();
+                const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+                const firstDayOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).getDay();
+                return (
+                    <div className="p-5 bg-[#1e1a16] border-t border-[#3a3028] animate-reveal overflow-x-auto">
+                        <div className="grid grid-cols-7 gap-1.5 text-center mb-2 min-w-[240px]">
+                            {['D', 'S', 'T', 'Q', 'Q', 'S', 'S'].map((d, i) => (<span key={i} className="text-[10px] font-bold text-[#8a7e6d]">{d}</span>))}
+                            {Array.from({ length: firstDayOfMonth }).map((_, i) => <div key={i} />)}
+                            {Array.from({ length: daysInMonth }).map((_, i) => {
+                                const day = i + 1;
+                                const dateStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                                const hasEntry = !!savedEntries[dateStr];
+                                return (
+                                    <div key={day} className={cn("aspect-square flex items-center justify-center rounded-lg text-xs font-bold", hasEntry ? "bg-amber-600 text-white" : "bg-[#2a2420] text-[#5a5045]")}>
+                                        {day}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                );
+            };
+
+            const QuestionsList = () => (
+                <div className="p-5 bg-[#1e1a16] border-t border-[#3a3028] animate-reveal">
+                    <div className="max-h-60 overflow-y-auto pr-2 custom-scrollbar space-y-2">
+                        {PERGUNTAS_PODEROSAS.map((q, i) => (
+                            <button key={i} onClick={() => injectQuestion(q)} className="w-full text-left p-3 rounded-xl bg-[#2a2420] text-xs font-medium text-[#c4b8a8] hover:bg-[#332c24] flex gap-3 transition-all">
+                                <span className="text-amber-600 font-mono">{(i+1).toString().padStart(2, '0')}</span>
+                                <span>{q}</span>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            );
+
+            const EmergencyRitual = () => {
+                const [isActive, setIsActive] = useState(false);
+                return (
+                    <div className="p-5 bg-[#1e1a16] border-t border-[#3a3028] animate-reveal text-center">
+                        <div className="mb-4 text-left">
+                            <h4 className="font-bold text-[#e8ddd0] mb-1">Meditação S.O.S 🧘‍♀️</h4>
+                            <p className="text-xs text-[#8a7e6d]">Acalme o sistema nervoso para liberar a gratidão.</p>
+                        </div>
+                        <div className="h-32 bg-[#151210] rounded-xl flex items-center justify-center mb-4 border border-[#2a2420]">
+                             <div className={cn("w-12 h-12 rounded-full bg-amber-600/40 transition-all duration-[4000ms]", isActive ? "scale-[2.5]" : "scale-1")} />
+                             <button onClick={() => setIsActive(!isActive)} className="absolute text-[10px] font-bold text-amber-200 bg-amber-900/60 px-4 py-2 rounded-full uppercase">
+                                {isActive ? "Parar" : "Iniciar Respiração"}
+                             </button>
+                        </div>
+                        <button onClick={() => injectQuestion("Apesar de hoje ter sido um dia difícil, eu agradeço por...")} className="w-full bg-amber-600 text-white font-bold text-xs py-3 rounded-xl flex items-center justify-center gap-2">
+                            <Zap size={14} /> Usar Comando S.O.S
+                        </button>
+                    </div>
+                );
+            };
+
+            const HistoryView = () => (
+                <div className="animate-reveal w-full pb-10">
+                    <button onClick={() => setCurrentView('home')} className="mb-6 flex items-center gap-2 text-xs font-bold text-amber-600 uppercase tracking-widest"><ArrowLeft size={16}/> Voltar</button>
+                    <h2 className="text-2xl font-display font-bold text-[#e8ddd0] mb-6">Meu Diário</h2>
+                    <div className="space-y-4">
+                        {Object.entries(savedEntries).sort((a,b) => b[0].localeCompare(a[0])).map(([date, text]) => (
+                            <div key={date} className="bg-[#231f1a] border border-[#3a3028] rounded-2xl p-5">
+                                <div className="text-[10px] font-bold text-amber-600 uppercase mb-2">{date}</div>
+                                <p className="text-sm text-[#c4b8a8] whitespace-pre-wrap">{text}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            );
+
+            return (
+                <div className="min-h-screen bg-[#1a1512] font-sans text-[#e8ddd0] py-10 px-4 flex flex-col items-center relative">
+                    <style dangerouslySetInnerHTML={{__html: `
+                        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,600;1,600&display=swap');
+                        .font-display { font-family: 'Cormorant Garamond', serif; }
+                        .font-sans { font-family: 'DM Sans', sans-serif; }
+                        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+                        .animate-reveal { animation: slideUp 0.5s ease-out forwards; }
+                        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+                        .custom-scrollbar::-webkit-scrollbar-thumb { background: #3a3028; border-radius: 4px; }
+                    `}} />
+
+                    <div className="w-full max-w-lg relative z-10">
+                        {showOnboarding ? (
+                            <div className="mt-20 animate-reveal text-center">
+                                <Feather size={40} className="text-amber-500 mx-auto mb-6" />
+                                <h1 className="text-3xl font-display italic mb-8">Bem-vindo à sua jornada de 365 dias</h1>
+                                <input type="text" value={tempName} onChange={(e) => setTempName(e.target.value)} placeholder="Seu nome..." className="w-full bg-[#231f1a] border border-[#3a3028] rounded-xl p-4 text-center text-lg mb-4 outline-none focus:border-amber-600" />
+                                <button onClick={saveName} className="w-full bg-amber-600 py-4 rounded-xl font-bold">Começar</button>
+                            </div>
+                        ) : currentView === 'history' ? (
+                            <HistoryView />
+                        ) : (
+                            <>
+                                <header className="flex justify-between items-center mb-10">
+                                    <div>
+                                        <div className="text-[10px] font-bold text-amber-600 uppercase tracking-widest">Oráculo 365</div>
+                                        <h1 className="font-display text-2xl italic">{getGreeting()}, {userName}</h1>
+                                    </div>
+                                    <div className="flex gap-2">
+                                        <div className="bg-[#2a2420] px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-bold">
+                                            <Trophy size={14} className="text-amber-500" /> {streak}
+                                        </div>
+                                        <button onClick={() => setCurrentView('history')} className="w-9 h-9 bg-[#2a2420] rounded-full flex items-center justify-center text-[#8a7e6d]"><BookOpen size={18}/></button>
+                                    </div>
+                                </header>
+
+                                {!isRevealed ? (
+                                    <div className="bg-[#231f1a] border border-[#3a3028] p-10 rounded-2xl text-center animate-reveal">
+                                        <LockKeyhole size={40} className="text-amber-900/40 mx-auto mb-6" />
+                                        <h2 className="text-2xl font-display italic mb-8">Sua inspiração do dia está pronta.</h2>
+                                        <button onClick={() => setIsRevealed(true)} className="w-full bg-amber-600 py-4 rounded-xl font-bold flex items-center justify-center gap-2">
+                                            <UnlockKeyhole size={18} /> Revelar Agora
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <div className="space-y-6 animate-reveal">
+                                        <div className="bg-gradient-to-br from-amber-700 to-orange-900 p-8 rounded-2xl relative overflow-hidden">
+                                            <Quote className="absolute -right-4 -top-4 w-24 h-24 text-white/5 rotate-12" />
+                                            <p className="text-xl font-display italic text-amber-50">"{todayPhrase}"</p>
+                                        </div>
+                                        <div className="bg-[#231f1a] border border-[#3a3028] p-5 rounded-2xl">
+                                            <textarea value={entry} onChange={(e) => setEntry(e.target.value)} placeholder="O que aqueceu seu coração hoje?" className="w-full h-40 bg-transparent outline-none resize-none text-[#c4b8a8] text-lg" />
+                                            <button onClick={saveEntry} disabled={!entry.trim()} className={cn("w-full py-4 rounded-xl font-bold mt-4 flex items-center justify-center gap-2 transition-all", isSaved ? "bg-emerald-600" : "bg-amber-600")}>
+                                                {isSaved ? <><CheckCircle size={18}/> Salvo!</> : <><Save size={18}/> Salvar no Diário</>}
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
+
+                                <div className="mt-10 space-y-3">
+                                    <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#5a5045] text-center mb-4">Bônus de Expansão</h3>
+                                    
+                                    {/* NOVO BÔNUS: BÚSSOLA DA VIBRAÇÃO */}
+                                    <div className="bg-[#231f1a] border border-[#3a3028] rounded-xl overflow-hidden">
+                                        <button onClick={() => setActiveBonus(activeBonus === 'bussola' ? null : 'bussola')} className="w-full flex items-center justify-between p-4 hover:bg-[#2a2420]">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 rounded-lg bg-indigo-900/30 text-indigo-400 flex items-center justify-center border border-indigo-800/20"><Compass size={16}/></div>
+                                                <div className="text-left">
+                                                    <h4 className="font-bold text-[#c4b8a8] text-xs">Bússola da Vibração</h4>
+                                                    <p className="text-[9px] text-[#5a5045]">Bônus Premium · Sintonize sua frequência</p>
+                                                </div>
+                                            </div>
+                                            {activeBonus === 'bussola' ? <ChevronUp size={16}/> : <ChevronDown size={16}/>}
+                                        </button>
+                                        {activeBonus === 'bussola' && <VibrationCompass />}
+                                    </div>
+
+                                    {/* OUTROS BÔNUS */}
+                                    <div className="bg-[#231f1a] border border-[#3a3028] rounded-xl overflow-hidden">
+                                        <button onClick={() => setActiveBonus(activeBonus === 'perguntas' ? null : 'perguntas')} className="w-full flex items-center justify-between p-4 hover:bg-[#2a2420]">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 rounded-lg bg-violet-900/30 text-violet-400 flex items-center justify-center border border-violet-800/20"><HelpCircle size={16}/></div>
+                                                <div className="text-left"><h4 className="font-bold text-[#c4b8a8] text-xs">30 Perguntas Poderosas</h4><p className="text-[9px] text-[#5a5045]">Mergulhe mais fundo na gratidão</p></div>
+                                            </div>
+                                            {activeBonus === 'perguntas' ? <ChevronUp size={16}/> : <ChevronDown size={16}/>}
+                                        </button>
+                                        {activeBonus === 'perguntas' && <QuestionsList />}
+                                    </div>
+
+                                    <div className="bg-[#231f1a] border border-[#3a3028] rounded-xl overflow-hidden">
+                                        <button onClick={() => setActiveBonus(activeBonus === 'calendario' ? null : 'calendario')} className="w-full flex items-center justify-between p-4 hover:bg-[#2a2420]">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 rounded-lg bg-emerald-900/30 text-emerald-400 flex items-center justify-center border border-emerald-800/20"><Calendar size={16}/></div>
+                                                <div className="text-left"><h4 className="font-bold text-[#c4b8a8] text-xs">Mapa de Constância</h4><p className="text-[9px] text-[#5a5045]">Seu progresso visual</p></div>
+                                            </div>
+                                            {activeBonus === 'calendario' ? <ChevronUp size={16}/> : <ChevronDown size={16}/>}
+                                        </button>
+                                        {activeBonus === 'calendario' && <HabitCalendar />}
+                                    </div>
+
+                                    <div className="bg-[#231f1a] border border-[#3a3028] rounded-xl overflow-hidden">
+                                        <button onClick={() => setActiveBonus(activeBonus === 'ritual' ? null : 'ritual')} className="w-full flex items-center justify-between p-4 hover:bg-[#2a2420]">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 rounded-lg bg-amber-900/30 text-amber-400 flex items-center justify-center border border-amber-800/20"><Zap size={16}/></div>
+                                                <div className="text-left"><h4 className="font-bold text-[#c4b8a8] text-xs">Ritual S.O.S</h4><p className="text-[9px] text-[#5a5045]">Para dias nublados</p></div>
+                                            </div>
+                                            {activeBonus === 'ritual' ? <ChevronUp size={16}/> : <ChevronDown size={16}/>}
+                                        </button>
+                                        {activeBonus === 'ritual' && <EmergencyRitual />}
+                                    </div>
+                                </div>
+                            </>
+                        )}
+                        <footer className="mt-10 text-center pb-10 text-[10px] text-[#3a3028] font-bold uppercase tracking-widest">© Oráculo da Gratidão · 365 Dias</footer>
+                    </div>
+                </div>
+            );
+        }
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
