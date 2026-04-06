@@ -1,656 +1,1088 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oráculo da Gratidão 365 - Premium</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script type="importmap">
-    {
-        "imports": {
-            "react": "https://esm.sh/react@18.2.0",
-            "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-            "lucide-react": "https://esm.sh/lucide-react@0.344.0",
-            "clsx": "https://esm.sh/clsx@2.1.0",
-            "tailwind-merge": "https://esm.sh/tailwind-merge@2.2.1"
+<!-- saved from url=(0033)https://lp365gratidao.vercel.app/ -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style data-rc-order="prependQueue" data-rc-priority="-999" data-css-hash="fmkred" data-token-hash="css-var-root">.css-var-root{--ant-blue:#1677FF;--ant-purple:#722ED1;--ant-cyan:#13C2C2;--ant-green:#52C41A;--ant-magenta:#EB2F96;--ant-pink:#EB2F96;--ant-red:#F5222D;--ant-orange:#FA8C16;--ant-yellow:#FADB14;--ant-volcano:#FA541C;--ant-geekblue:#2F54EB;--ant-gold:#FAAD14;--ant-lime:#A0D911;--ant-color-primary:#1677ff;--ant-color-success:#52c41a;--ant-color-warning:#faad14;--ant-color-error:#ff4d4f;--ant-color-info:#1677ff;--ant-color-link:#1677ff;--ant-color-text-base:#000;--ant-color-bg-base:#fff;--ant-font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+'Noto Color Emoji';--ant-font-family-code:'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;--ant-font-size:14px;--ant-line-width:1px;--ant-line-type:solid;--ant-motion-ease-out-circ:cubic-bezier(0.08, 0.82, 0.17, 1);--ant-motion-ease-in-out-circ:cubic-bezier(0.78, 0.14, 0.15, 0.86);--ant-motion-ease-out:cubic-bezier(0.215, 0.61, 0.355, 1);--ant-motion-ease-in-out:cubic-bezier(0.645, 0.045, 0.355, 1);--ant-motion-ease-out-back:cubic-bezier(0.12, 0.4, 0.29, 1.46);--ant-motion-ease-in-back:cubic-bezier(0.71, -0.46, 0.88, 0.6);--ant-motion-ease-in-quint:cubic-bezier(0.755, 0.05, 0.855, 0.06);--ant-motion-ease-out-quint:cubic-bezier(0.23, 1, 0.32, 1);--ant-border-radius:6px;--ant-size-unit:4px;--ant-size-step:4px;--ant-size-popup-arrow:16px;--ant-control-height:32px;--ant-z-index-base:0;--ant-z-index-popup-base:1000;--ant-opacity-image:1;--ant-blue-1:#e6f4ff;--ant-blue-2:#bae0ff;--ant-blue-3:#91caff;--ant-blue-4:#69b1ff;--ant-blue-5:#4096ff;--ant-blue-6:#1677ff;--ant-blue-7:#0958d9;--ant-blue-8:#003eb3;--ant-blue-9:#002c8c;--ant-blue-10:#001d66;--ant-purple-1:#f9f0ff;--ant-purple-2:#efdbff;--ant-purple-3:#d3adf7;--ant-purple-4:#b37feb;--ant-purple-5:#9254de;--ant-purple-6:#722ed1;--ant-purple-7:#531dab;--ant-purple-8:#391085;--ant-purple-9:#22075e;--ant-purple-10:#120338;--ant-cyan-1:#e6fffb;--ant-cyan-2:#b5f5ec;--ant-cyan-3:#87e8de;--ant-cyan-4:#5cdbd3;--ant-cyan-5:#36cfc9;--ant-cyan-6:#13c2c2;--ant-cyan-7:#08979c;--ant-cyan-8:#006d75;--ant-cyan-9:#00474f;--ant-cyan-10:#002329;--ant-green-1:#f6ffed;--ant-green-2:#d9f7be;--ant-green-3:#b7eb8f;--ant-green-4:#95de64;--ant-green-5:#73d13d;--ant-green-6:#52c41a;--ant-green-7:#389e0d;--ant-green-8:#237804;--ant-green-9:#135200;--ant-green-10:#092b00;--ant-magenta-1:#fff0f6;--ant-magenta-2:#ffd6e7;--ant-magenta-3:#ffadd2;--ant-magenta-4:#ff85c0;--ant-magenta-5:#f759ab;--ant-magenta-6:#eb2f96;--ant-magenta-7:#c41d7f;--ant-magenta-8:#9e1068;--ant-magenta-9:#780650;--ant-magenta-10:#520339;--ant-pink-1:#fff0f6;--ant-pink-2:#ffd6e7;--ant-pink-3:#ffadd2;--ant-pink-4:#ff85c0;--ant-pink-5:#f759ab;--ant-pink-6:#eb2f96;--ant-pink-7:#c41d7f;--ant-pink-8:#9e1068;--ant-pink-9:#780650;--ant-pink-10:#520339;--ant-red-1:#fff1f0;--ant-red-2:#ffccc7;--ant-red-3:#ffa39e;--ant-red-4:#ff7875;--ant-red-5:#ff4d4f;--ant-red-6:#f5222d;--ant-red-7:#cf1322;--ant-red-8:#a8071a;--ant-red-9:#820014;--ant-red-10:#5c0011;--ant-orange-1:#fff7e6;--ant-orange-2:#ffe7ba;--ant-orange-3:#ffd591;--ant-orange-4:#ffc069;--ant-orange-5:#ffa940;--ant-orange-6:#fa8c16;--ant-orange-7:#d46b08;--ant-orange-8:#ad4e00;--ant-orange-9:#873800;--ant-orange-10:#612500;--ant-yellow-1:#feffe6;--ant-yellow-2:#ffffb8;--ant-yellow-3:#fffb8f;--ant-yellow-4:#fff566;--ant-yellow-5:#ffec3d;--ant-yellow-6:#fadb14;--ant-yellow-7:#d4b106;--ant-yellow-8:#ad8b00;--ant-yellow-9:#876800;--ant-yellow-10:#614700;--ant-volcano-1:#fff2e8;--ant-volcano-2:#ffd8bf;--ant-volcano-3:#ffbb96;--ant-volcano-4:#ff9c6e;--ant-volcano-5:#ff7a45;--ant-volcano-6:#fa541c;--ant-volcano-7:#d4380d;--ant-volcano-8:#ad2102;--ant-volcano-9:#871400;--ant-volcano-10:#610b00;--ant-geekblue-1:#f0f5ff;--ant-geekblue-2:#d6e4ff;--ant-geekblue-3:#adc6ff;--ant-geekblue-4:#85a5ff;--ant-geekblue-5:#597ef7;--ant-geekblue-6:#2f54eb;--ant-geekblue-7:#1d39c4;--ant-geekblue-8:#10239e;--ant-geekblue-9:#061178;--ant-geekblue-10:#030852;--ant-gold-1:#fffbe6;--ant-gold-2:#fff1b8;--ant-gold-3:#ffe58f;--ant-gold-4:#ffd666;--ant-gold-5:#ffc53d;--ant-gold-6:#faad14;--ant-gold-7:#d48806;--ant-gold-8:#ad6800;--ant-gold-9:#874d00;--ant-gold-10:#613400;--ant-lime-1:#fcffe6;--ant-lime-2:#f4ffb8;--ant-lime-3:#eaff8f;--ant-lime-4:#d3f261;--ant-lime-5:#bae637;--ant-lime-6:#a0d911;--ant-lime-7:#7cb305;--ant-lime-8:#5b8c00;--ant-lime-9:#3f6600;--ant-lime-10:#254000;--ant-color-text:rgba(0,0,0,0.88);--ant-color-text-secondary:rgba(0,0,0,0.65);--ant-color-text-tertiary:rgba(0,0,0,0.45);--ant-color-text-quaternary:rgba(0,0,0,0.25);--ant-color-fill:rgba(0,0,0,0.15);--ant-color-fill-secondary:rgba(0,0,0,0.06);--ant-color-fill-tertiary:rgba(0,0,0,0.04);--ant-color-fill-quaternary:rgba(0,0,0,0.02);--ant-color-bg-solid:rgb(0,0,0);--ant-color-bg-solid-hover:rgba(0,0,0,0.75);--ant-color-bg-solid-active:rgba(0,0,0,0.95);--ant-color-bg-layout:#f5f5f5;--ant-color-bg-container:#ffffff;--ant-color-bg-elevated:#ffffff;--ant-color-bg-spotlight:rgba(0,0,0,0.85);--ant-color-bg-blur:transparent;--ant-color-border:#d9d9d9;--ant-color-border-disabled:#d9d9d9;--ant-color-border-secondary:#f0f0f0;--ant-color-primary-bg:#e6f4ff;--ant-color-primary-bg-hover:#bae0ff;--ant-color-primary-border:#91caff;--ant-color-primary-border-hover:#69b1ff;--ant-color-primary-hover:#4096ff;--ant-color-primary-active:#0958d9;--ant-color-primary-text-hover:#4096ff;--ant-color-primary-text:#1677ff;--ant-color-primary-text-active:#0958d9;--ant-color-success-bg:#f6ffed;--ant-color-success-bg-hover:#d9f7be;--ant-color-success-border:#b7eb8f;--ant-color-success-border-hover:#95de64;--ant-color-success-hover:#95de64;--ant-color-success-active:#389e0d;--ant-color-success-text-hover:#73d13d;--ant-color-success-text:#52c41a;--ant-color-success-text-active:#389e0d;--ant-color-error-bg:#fff2f0;--ant-color-error-bg-hover:#fff1f0;--ant-color-error-bg-filled-hover:#ffdfdc;--ant-color-error-bg-active:#ffccc7;--ant-color-error-border:#ffccc7;--ant-color-error-border-hover:#ffa39e;--ant-color-error-hover:#ff7875;--ant-color-error-active:#d9363e;--ant-color-error-text-hover:#ff7875;--ant-color-error-text:#ff4d4f;--ant-color-error-text-active:#d9363e;--ant-color-warning-bg:#fffbe6;--ant-color-warning-bg-hover:#fff1b8;--ant-color-warning-border:#ffe58f;--ant-color-warning-border-hover:#ffd666;--ant-color-warning-hover:#ffd666;--ant-color-warning-active:#d48806;--ant-color-warning-text-hover:#ffc53d;--ant-color-warning-text:#faad14;--ant-color-warning-text-active:#d48806;--ant-color-info-bg:#e6f4ff;--ant-color-info-bg-hover:#bae0ff;--ant-color-info-border:#91caff;--ant-color-info-border-hover:#69b1ff;--ant-color-info-hover:#69b1ff;--ant-color-info-active:#0958d9;--ant-color-info-text-hover:#4096ff;--ant-color-info-text:#1677ff;--ant-color-info-text-active:#0958d9;--ant-color-link-hover:#69b1ff;--ant-color-link-active:#0958d9;--ant-blue-hover:#4096ff;--ant-blue-active:#0958d9;--ant-purple-hover:#9254de;--ant-purple-active:#531dab;--ant-cyan-hover:#36cfc9;--ant-cyan-active:#08979c;--ant-green-hover:#73d13d;--ant-green-active:#389e0d;--ant-magenta-hover:#f759ab;--ant-magenta-active:#c41d7f;--ant-pink-hover:#f759ab;--ant-pink-active:#c41d7f;--ant-red-hover:#ff4d4f;--ant-red-active:#cf1322;--ant-orange-hover:#ffa940;--ant-orange-active:#d46b08;--ant-yellow-hover:#ffec3d;--ant-yellow-active:#d4b106;--ant-volcano-hover:#ff7a45;--ant-volcano-active:#d4380d;--ant-geekblue-hover:#597ef7;--ant-geekblue-active:#1d39c4;--ant-lime-hover:#bae637;--ant-lime-active:#7cb305;--ant-gold-hover:#ffc53d;--ant-gold-active:#d48806;--ant-color-bg-mask:rgba(0,0,0,0.45);--ant-color-white:#fff;--ant-font-size-sm:12px;--ant-font-size-lg:16px;--ant-font-size-xl:20px;--ant-font-size-heading-1:38px;--ant-font-size-heading-2:30px;--ant-font-size-heading-3:24px;--ant-font-size-heading-4:20px;--ant-font-size-heading-5:16px;--ant-line-height:1.5714285714285714;--ant-line-height-lg:1.5;--ant-line-height-sm:1.6666666666666667;--ant-font-height:22px;--ant-font-height-lg:24px;--ant-font-height-sm:20px;--ant-line-height-heading-1:1.2105263157894737;--ant-line-height-heading-2:1.2666666666666666;--ant-line-height-heading-3:1.3333333333333333;--ant-line-height-heading-4:1.4;--ant-line-height-heading-5:1.5;--ant-size-xxl:48px;--ant-size-xl:32px;--ant-size-lg:24px;--ant-size-md:20px;--ant-size-ms:16px;--ant-size:16px;--ant-size-sm:12px;--ant-size-xs:8px;--ant-size-xxs:4px;--ant-control-height-sm:24px;--ant-control-height-xs:16px;--ant-control-height-lg:40px;--ant-motion-duration-fast:0.1s;--ant-motion-duration-mid:0.2s;--ant-motion-duration-slow:0.3s;--ant-line-width-bold:2px;--ant-border-radius-xs:2px;--ant-border-radius-sm:4px;--ant-border-radius-lg:8px;--ant-border-radius-outer:4px;--ant-color-fill-content:rgba(0,0,0,0.06);--ant-color-fill-content-hover:rgba(0,0,0,0.15);--ant-color-fill-alter:rgba(0,0,0,0.02);--ant-color-bg-container-disabled:rgba(0,0,0,0.04);--ant-color-border-bg:#ffffff;--ant-color-split:rgba(5,5,5,0.06);--ant-color-text-placeholder:rgba(0,0,0,0.25);--ant-color-text-disabled:rgba(0,0,0,0.25);--ant-color-text-heading:rgba(0,0,0,0.88);--ant-color-text-label:rgba(0,0,0,0.65);--ant-color-text-description:rgba(0,0,0,0.45);--ant-color-text-light-solid:#fff;--ant-color-highlight:#ff4d4f;--ant-color-bg-text-hover:rgba(0,0,0,0.06);--ant-color-bg-text-active:rgba(0,0,0,0.15);--ant-color-icon:rgba(0,0,0,0.45);--ant-color-icon-hover:rgba(0,0,0,0.88);--ant-color-error-outline:rgba(255,38,5,0.06);--ant-color-warning-outline:rgba(255,215,5,0.1);--ant-font-size-icon:12px;--ant-line-width-focus:3px;--ant-control-outline-width:2px;--ant-control-interactive-size:16px;--ant-control-item-bg-hover:rgba(0,0,0,0.04);--ant-control-item-bg-active:#e6f4ff;--ant-control-item-bg-active-hover:#bae0ff;--ant-control-item-bg-active-disabled:rgba(0,0,0,0.15);--ant-control-tmp-outline:rgba(0,0,0,0.02);--ant-control-outline:rgba(5,145,255,0.1);--ant-font-weight-strong:600;--ant-opacity-loading:0.65;--ant-link-decoration:none;--ant-link-hover-decoration:none;--ant-link-focus-decoration:none;--ant-control-padding-horizontal:12px;--ant-control-padding-horizontal-sm:8px;--ant-padding-xxs:4px;--ant-padding-xs:8px;--ant-padding-sm:12px;--ant-padding:16px;--ant-padding-md:20px;--ant-padding-lg:24px;--ant-padding-xl:32px;--ant-padding-content-horizontal-lg:24px;--ant-padding-content-vertical-lg:16px;--ant-padding-content-horizontal:16px;--ant-padding-content-vertical:12px;--ant-padding-content-horizontal-sm:16px;--ant-padding-content-vertical-sm:8px;--ant-margin-xxs:4px;--ant-margin-xs:8px;--ant-margin-sm:12px;--ant-margin:16px;--ant-margin-md:20px;--ant-margin-lg:24px;--ant-margin-xl:32px;--ant-margin-xxl:48px;--ant-box-shadow:
+      0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05)
+    ;--ant-box-shadow-secondary:
+      0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05)
+    ;--ant-box-shadow-tertiary:
+      0 1px 2px 0 rgba(0, 0, 0, 0.03),
+      0 1px 6px -1px rgba(0, 0, 0, 0.02),
+      0 2px 4px 0 rgba(0, 0, 0, 0.02)
+    ;--ant-screen-xxl-max:1919px;--ant-screen-xxxl:1920px;--ant-screen-xxxl-min:1920px;--ant-box-shadow-popover-arrow:2px 2px 5px rgba(0, 0, 0, 0.05);--ant-box-shadow-card:
+      0 1px 2px -2px rgba(0,0,0,0.16),
+      0 3px 6px 0 rgba(0,0,0,0.12),
+      0 5px 12px 4px rgba(0,0,0,0.09)
+    ;--ant-box-shadow-drawer-right:
+      -6px 0 16px 0 rgba(0, 0, 0, 0.08),
+      -3px 0 6px -4px rgba(0, 0, 0, 0.12),
+      -9px 0 28px 8px rgba(0, 0, 0, 0.05)
+    ;--ant-box-shadow-drawer-left:
+      6px 0 16px 0 rgba(0, 0, 0, 0.08),
+      3px 0 6px -4px rgba(0, 0, 0, 0.12),
+      9px 0 28px 8px rgba(0, 0, 0, 0.05)
+    ;--ant-box-shadow-drawer-up:
+      0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05)
+    ;--ant-box-shadow-drawer-down:
+      0 -6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 -3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 -9px 28px 8px rgba(0, 0, 0, 0.05)
+    ;--ant-box-shadow-tabs-overflow-left:inset 10px 0 8px -8px rgba(0, 0, 0, 0.08);--ant-box-shadow-tabs-overflow-right:inset -10px 0 8px -8px rgba(0, 0, 0, 0.08);--ant-box-shadow-tabs-overflow-top:inset 0 10px 8px -8px rgba(0, 0, 0, 0.08);--ant-box-shadow-tabs-overflow-bottom:inset 0 -10px 8px -8px rgba(0, 0, 0, 0.08);}</style><style data-rc-order="prependQueue" data-rc-priority="-999" data-css-hash="1ky16lv">a:where(.css-1daqxe2){color:var(--ant-color-link);text-decoration:var(--ant-link-decoration);background-color:transparent;outline:none;cursor:pointer;transition:color var(--ant-motion-duration-slow);-webkit-text-decoration-skip:objects;}a:where(.css-1daqxe2):hover{color:var(--ant-color-link-hover);}a:where(.css-1daqxe2):active{color:var(--ant-color-link-active);}a:where(.css-1daqxe2):active,a:where(.css-1daqxe2):hover{text-decoration:var(--ant-link-hover-decoration);outline:0;}a:where(.css-1daqxe2):focus{text-decoration:var(--ant-link-focus-decoration);outline:0;}a:where(.css-1daqxe2)[disabled]{color:var(--ant-color-text-disabled);cursor:not-allowed;}:where(.css-1daqxe2) a{color:var(--ant-color-link);text-decoration:var(--ant-link-decoration);background-color:transparent;outline:none;cursor:pointer;transition:color var(--ant-motion-duration-slow);-webkit-text-decoration-skip:objects;}:where(.css-1daqxe2) a:hover{color:var(--ant-color-link-hover);}:where(.css-1daqxe2) a:active{color:var(--ant-color-link-active);}:where(.css-1daqxe2) a:active,:where(.css-1daqxe2) a:hover{text-decoration:var(--ant-link-hover-decoration);outline:0;}:where(.css-1daqxe2) a:focus{text-decoration:var(--ant-link-focus-decoration);outline:0;}:where(.css-1daqxe2) a[disabled]{color:var(--ant-color-text-disabled);cursor:not-allowed;}:where(.css-1daqxe2).anticon{display:inline-flex;align-items:center;color:inherit;font-style:normal;line-height:0;text-align:center;text-transform:none;vertical-align:-0.125em;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}:where(.css-1daqxe2).anticon >*{line-height:1;}:where(.css-1daqxe2).anticon svg{display:inline-block;}:where(.css-1daqxe2).anticon .anticon .anticon-icon{display:block;}</style><style data-rc-order="prependQueue" data-rc-priority="-999" data-css-hash="1edeyua">:where(.css-1daqxe2).ant-modal-css-var{font-family:var(--ant-font-family);font-size:var(--ant-font-size);box-sizing:border-box;}:where(.css-1daqxe2).ant-modal-css-var::before,:where(.css-1daqxe2).ant-modal-css-var::after{box-sizing:border-box;}:where(.css-1daqxe2).ant-modal-css-var [class^="ant-modal"],:where(.css-1daqxe2).ant-modal-css-var [class*=" ant-modal"]{box-sizing:border-box;}:where(.css-1daqxe2).ant-modal-css-var [class^="ant-modal"]::before,:where(.css-1daqxe2).ant-modal-css-var [class*=" ant-modal"]::before,:where(.css-1daqxe2).ant-modal-css-var [class^="ant-modal"]::after,:where(.css-1daqxe2).ant-modal-css-var [class*=" ant-modal"]::after{box-sizing:border-box;}:where(.css-1daqxe2).ant-modal-root .ant-modal-wrap-rtl{direction:rtl;}:where(.css-1daqxe2).ant-modal-root .ant-modal-centered{text-align:center;}:where(.css-1daqxe2).ant-modal-root .ant-modal-centered::before{display:inline-block;width:0;height:100%;vertical-align:middle;content:"";}:where(.css-1daqxe2).ant-modal-root .ant-modal-centered .ant-modal{top:0;display:inline-block;padding-bottom:0;text-align:start;vertical-align:middle;}@media (max-width: 767px){:where(.css-1daqxe2).ant-modal-root .ant-modal{max-width:calc(100vw - 16px);margin:var(--ant-margin-xs) auto;}:where(.css-1daqxe2).ant-modal-root .ant-modal-centered .ant-modal{flex:1;}}:where(.css-1daqxe2).ant-modal{box-sizing:border-box;margin:0 auto;padding:0;color:var(--ant-color-text);font-size:var(--ant-font-size);line-height:var(--ant-line-height);list-style:none;font-family:var(--ant-font-family);pointer-events:none;position:relative;top:100px;width:auto;max-width:calc(100vw - calc(var(--ant-margin) * 2));}:where(.css-1daqxe2).ant-modal:focus-visible{border-radius:var(--ant-border-radius-lg);outline:var(--ant-line-width-focus) solid var(--ant-color-primary-border);outline-offset:1px;transition:outline-offset 0s,outline 0s;}:where(.css-1daqxe2).ant-modal .ant-modal-title{margin:0;color:var(--ant-modal-title-color);font-weight:var(--ant-font-weight-strong);font-size:var(--ant-modal-title-font-size);line-height:var(--ant-modal-title-line-height);word-wrap:break-word;}:where(.css-1daqxe2).ant-modal .ant-modal-container{position:relative;background-color:var(--ant-modal-content-bg);background-clip:padding-box;border:0;border-radius:var(--ant-border-radius-lg);box-shadow:var(--ant-box-shadow);pointer-events:auto;padding:var(--ant-modal-content-padding);}:where(.css-1daqxe2).ant-modal .ant-modal-close{position:absolute;top:calc((calc(calc(var(--ant-line-height-heading-5) * var(--ant-font-size-heading-5)) + calc(var(--ant-padding) * 2)) - var(--ant-control-height)) / 2);inset-inline-end:calc((calc(calc(var(--ant-line-height-heading-5) * var(--ant-font-size-heading-5)) + calc(var(--ant-padding) * 2)) - var(--ant-control-height)) / 2);z-index:calc(var(--ant-z-index-popup-base) + 10);padding:0;color:var(--ant-color-icon);font-weight:var(--ant-font-weight-strong);line-height:1;text-decoration:none;background:transparent;border-radius:var(--ant-border-radius-sm);width:var(--ant-control-height);height:var(--ant-control-height);border:0;outline:0;cursor:pointer;transition:color var(--ant-motion-duration-mid),background-color var(--ant-motion-duration-mid);}:where(.css-1daqxe2).ant-modal .ant-modal-close-x{display:flex;font-size:var(--ant-font-size-lg);font-style:normal;line-height:var(--ant-control-height);justify-content:center;text-transform:none;text-rendering:auto;}:where(.css-1daqxe2).ant-modal .ant-modal-close:disabled{pointer-events:none;}:where(.css-1daqxe2).ant-modal .ant-modal-close:hover{color:var(--ant-color-icon-hover);background-color:var(--ant-color-bg-text-hover);text-decoration:none;}:where(.css-1daqxe2).ant-modal .ant-modal-close:active{background-color:var(--ant-color-bg-text-active);}:where(.css-1daqxe2).ant-modal .ant-modal-close:focus-visible{outline:var(--ant-line-width-focus) solid var(--ant-color-primary-border);outline-offset:1px;transition:outline-offset 0s,outline 0s;}:where(.css-1daqxe2).ant-modal .ant-modal-header{color:var(--ant-color-text);background:var(--ant-modal-header-bg);border-radius:var(--ant-border-radius-lg) var(--ant-border-radius-lg) 0 0;margin-bottom:var(--ant-modal-header-margin-bottom);padding:var(--ant-modal-header-padding);border-bottom:var(--ant-modal-header-border-bottom);}:where(.css-1daqxe2).ant-modal .ant-modal-body{font-size:var(--ant-font-size);line-height:var(--ant-line-height);word-wrap:break-word;padding:var(--ant-modal-body-padding);}:where(.css-1daqxe2).ant-modal .ant-modal-body .ant-modal-body-skeleton{width:100%;height:100%;display:flex;justify-content:center;align-items:center;margin:var(--ant-margin) auto;}:where(.css-1daqxe2).ant-modal .ant-modal-footer{text-align:end;background:var(--ant-modal-footer-bg);margin-top:var(--ant-modal-footer-margin-top);padding:var(--ant-modal-footer-padding);border-top:var(--ant-modal-footer-border-top);border-radius:var(--ant-modal-footer-border-radius);}:where(.css-1daqxe2).ant-modal .ant-modal-footer >.ant-btn+.ant-btn{margin-inline-start:var(--ant-margin-xs);}:where(.css-1daqxe2).ant-modal .ant-modal-open{overflow:hidden;}:where(.css-1daqxe2).ant-modal-pure-panel{top:auto;padding:0;display:flex;flex-direction:column;}:where(.css-1daqxe2).ant-modal-pure-panel .ant-modal-container,:where(.css-1daqxe2).ant-modal-pure-panel .ant-modal-body,:where(.css-1daqxe2).ant-modal-pure-panel .ant-modal-confirm-body-wrapper{display:flex;flex-direction:column;flex:auto;}:where(.css-1daqxe2).ant-modal-pure-panel .ant-modal-confirm-body{margin-bottom:auto;}:where(.css-1daqxe2).ant-modal-root .ant-modal-wrap-rtl{direction:rtl;}:where(.css-1daqxe2).ant-modal-root .ant-modal-wrap-rtl .ant-modal-confirm-body{direction:rtl;}:where(.css-1daqxe2).ant-modal-root .ant-modal.ant-zoom-enter,:where(.css-1daqxe2).ant-modal-root .ant-modal.ant-zoom-appear{transform:none;opacity:0;animation-duration:var(--ant-motion-duration-slow);user-select:none;}:where(.css-1daqxe2).ant-modal-root .ant-modal.ant-zoom-leave .ant-modal-container{pointer-events:none;}:where(.css-1daqxe2).ant-modal-root .ant-modal-mask{position:fixed;inset:0;z-index:var(--ant-z-index-popup-base);height:100%;background-color:var(--ant-color-bg-mask);pointer-events:none;}:where(.css-1daqxe2).ant-modal-root .ant-modal-mask.ant-modal-mask-blur{backdrop-filter:blur(4px);}:where(.css-1daqxe2).ant-modal-root .ant-modal-mask .ant-modal-hidden{display:none;}:where(.css-1daqxe2).ant-modal-root .ant-modal-wrap{position:fixed;inset:0;z-index:var(--ant-z-index-popup-base);overflow:auto;outline:0;-webkit-overflow-scrolling:touch;}:where(.css-1daqxe2).ant-modal-root .ant-fade-enter,:where(.css-1daqxe2).ant-modal-root .ant-fade-appear{animation-duration:var(--ant-motion-duration-mid);animation-fill-mode:both;animation-play-state:paused;}:where(.css-1daqxe2).ant-modal-root .ant-fade-leave{animation-duration:var(--ant-motion-duration-mid);animation-fill-mode:both;animation-play-state:paused;}:where(.css-1daqxe2).ant-modal-root .ant-fade-enter.ant-fade-enter-active,:where(.css-1daqxe2).ant-modal-root .ant-fade-appear.ant-fade-appear-active{animation-name:css-1daqxe2-antFadeIn;animation-play-state:running;}:where(.css-1daqxe2).ant-modal-root .ant-fade-leave.ant-fade-leave-active{animation-name:css-1daqxe2-antFadeOut;animation-play-state:running;pointer-events:none;}:where(.css-1daqxe2).ant-modal-root .ant-fade-enter,:where(.css-1daqxe2).ant-modal-root .ant-fade-appear{opacity:0;animation-timing-function:linear;}:where(.css-1daqxe2).ant-modal-root .ant-fade-leave{animation-timing-function:linear;}:where(.css-1daqxe2).ant-zoom-enter,:where(.css-1daqxe2).ant-zoom-appear{animation-duration:var(--ant-motion-duration-mid);animation-fill-mode:both;animation-play-state:paused;}:where(.css-1daqxe2).ant-zoom-leave{animation-duration:var(--ant-motion-duration-mid);animation-fill-mode:both;animation-play-state:paused;}:where(.css-1daqxe2).ant-zoom-enter.ant-zoom-enter-active,:where(.css-1daqxe2).ant-zoom-appear.ant-zoom-appear-active{animation-name:css-1daqxe2-antZoomIn;animation-play-state:running;}:where(.css-1daqxe2).ant-zoom-leave.ant-zoom-leave-active{animation-name:css-1daqxe2-antZoomOut;animation-play-state:running;pointer-events:none;}:where(.css-1daqxe2).ant-zoom-enter,:where(.css-1daqxe2).ant-zoom-appear{transform:scale(0);opacity:0;animation-timing-function:var(--ant-motion-ease-out-circ);}:where(.css-1daqxe2).ant-zoom-enter-prepare,:where(.css-1daqxe2).ant-zoom-appear-prepare{transform:none;}:where(.css-1daqxe2).ant-zoom-leave{animation-timing-function:var(--ant-motion-ease-in-out-circ);}:where(.css-1daqxe2).ant-modal-root .ant-modal{--ant-modal-sm-width:var(--ant-modal-xs-width);--ant-modal-md-width:var(--ant-modal-sm-width);--ant-modal-lg-width:var(--ant-modal-md-width);--ant-modal-xl-width:var(--ant-modal-lg-width);--ant-modal-xxl-width:var(--ant-modal-xl-width);width:var(--ant-modal-xs-width);}@media (min-width: 576px){:where(.css-1daqxe2).ant-modal-root .ant-modal{width:var(--ant-modal-sm-width);}}@media (min-width: 768px){:where(.css-1daqxe2).ant-modal-root .ant-modal{width:var(--ant-modal-md-width);}}@media (min-width: 992px){:where(.css-1daqxe2).ant-modal-root .ant-modal{width:var(--ant-modal-lg-width);}}@media (min-width: 1200px){:where(.css-1daqxe2).ant-modal-root .ant-modal{width:var(--ant-modal-xl-width);}}@media (min-width: 1600px){:where(.css-1daqxe2).ant-modal-root .ant-modal{width:var(--ant-modal-xxl-width);}}</style><style data-rc-order="prependQueue" data-rc-priority="-999" data-css-hash="_effect-css-1daqxe2-antFadeIn">@keyframes css-1daqxe2-antFadeIn{0%{opacity:0;}100%{opacity:1;}}</style><style data-rc-order="prependQueue" data-rc-priority="-999" data-css-hash="_effect-css-1daqxe2-antFadeOut">@keyframes css-1daqxe2-antFadeOut{0%{opacity:1;}100%{opacity:0;}}</style><style data-rc-order="prependQueue" data-rc-priority="-999" data-css-hash="_effect-css-1daqxe2-antZoomIn">@keyframes css-1daqxe2-antZoomIn{0%{transform:scale(0.2);opacity:0;}100%{transform:scale(1);opacity:1;}}</style><style data-rc-order="prependQueue" data-rc-priority="-999" data-css-hash="_effect-css-1daqxe2-antZoomOut">@keyframes css-1daqxe2-antZoomOut{0%{transform:scale(1);}100%{transform:scale(0.2);opacity:0;}}</style><style data-rc-order="prependQueue" data-rc-priority="-999" data-css-hash="a384qu" data-token-hash="css-var-root">.css-var-root.ant-modal-css-var{--ant-modal-footer-bg:transparent;--ant-modal-header-bg:transparent;--ant-modal-title-line-height:1.5;--ant-modal-title-font-size:16px;--ant-modal-content-bg:#ffffff;--ant-modal-title-color:rgba(0,0,0,0.88);--ant-modal-content-padding:20px 24px;--ant-modal-header-padding:0px;--ant-modal-header-border-bottom:none;--ant-modal-header-margin-bottom:8px;--ant-modal-body-padding:0px;--ant-modal-footer-padding:0px;--ant-modal-footer-border-top:none;--ant-modal-footer-border-radius:0px;--ant-modal-footer-margin-top:12px;--ant-modal-confirm-body-padding:0px;--ant-modal-confirm-icon-margin-inline-end:12px;--ant-modal-confirm-btns-margin-top:12px;}</style><style data-rc-order="prependQueue" data-rc-priority="-999" data-css-hash="1cwh91f">:where(.css-1daqxe2).ant-app{font-family:var(--ant-font-family);font-size:var(--ant-font-size);box-sizing:border-box;}:where(.css-1daqxe2).ant-app::before,:where(.css-1daqxe2).ant-app::after{box-sizing:border-box;}:where(.css-1daqxe2).ant-app [class^="ant-app"],:where(.css-1daqxe2).ant-app [class*=" ant-app"]{box-sizing:border-box;}:where(.css-1daqxe2).ant-app [class^="ant-app"]::before,:where(.css-1daqxe2).ant-app [class*=" ant-app"]::before,:where(.css-1daqxe2).ant-app [class^="ant-app"]::after,:where(.css-1daqxe2).ant-app [class*=" ant-app"]::after{box-sizing:border-box;}:where(.css-1daqxe2).ant-app{color:var(--ant-color-text);font-size:var(--ant-font-size);line-height:var(--ant-line-height);font-family:var(--ant-font-family);}:where(.css-1daqxe2).ant-app.ant-app-rtl{direction:rtl;}</style><style data-rc-order="prependQueue" data-css-hash="eugadl">.anticon{display:inline-flex;align-items:center;color:inherit;font-style:normal;line-height:0;text-align:center;text-transform:none;vertical-align:-0.125em;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}.anticon >*{line-height:1;}.anticon svg{display:inline-block;}.anticon .anticon .anticon-icon{display:block;}</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>365 Frases Prontas de Gratidão</title>
+<link href="./365 Frases Prontas de Gratidão_files/css2" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #030303;
+  --bg-alt: #050505;
+  --bg-card: rgba(255,255,255,0.02);
+  --violet: #8B5CF6;
+  --cyan: #06B6D4;
+  --emerald: #10B981;
+  --white: #ffffff;
+  --neutral-400: #a3a3a3;
+  --neutral-500: #737373;
+  --border: rgba(255,255,255,0.05);
+  --border-light: rgba(255,255,255,0.1);
+  --glass: rgba(10,10,10,0.7);
+  --ease-snap: cubic-bezier(0.23, 1, 0.32, 1);
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* â•â•â• NAV â•â•â• */
+.nav {
+  position: absolute;
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 672px;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-light);
+  border-radius: 9999px;
+  padding: 0.65rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  transition: box-shadow 0.4s var(--ease-snap);
+}
+.nav:hover { box-shadow: 0 0 30px -10px rgba(139,92,246,0.15); }
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.nav-logo-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--violet), var(--cyan));
+  flex-shrink: 0;
+}
+.nav-logo-text {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+.nav-cta {
+  background: var(--white);
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: transform 0.3s var(--ease-snap), box-shadow 0.3s;
+  white-space: nowrap;
+}
+.nav-cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255,255,255,0.15);
+}
+
+/* â•â•â• AMBIENT ORBS â•â•â• */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  will-change: transform;
+}
+.orb-violet {
+  background: rgba(139,92,246,0.25);
+  width: clamp(250px, 40vw, 500px);
+  height: clamp(250px, 40vw, 500px);
+  animation: floatOrb 8s ease-in-out infinite alternate;
+}
+.orb-cyan {
+  background: rgba(6,182,212,0.12);
+  width: clamp(200px, 30vw, 400px);
+  height: clamp(200px, 30vw, 400px);
+  animation: floatOrb 12s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatOrb {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-25px) scale(1.06); }
+}
+
+/* â•â•â• HERO â•â•â• */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 1.5rem 4rem;
+  overflow: hidden;
+}
+.hero .orb-violet { top: -10%; left: 30%; }
+.hero .orb-cyan { bottom: 10%; right: -5%; }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(139,92,246,0.1);
+  border: 1px solid rgba(139,92,246,0.25);
+  border-radius: 9999px;
+  padding: 0.4rem 1.1rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #c4b5fd;
+  margin-bottom: 2rem;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 0.8s var(--ease-snap) 0.2s forwards;
+}
+.hero-badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--emerald);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  max-width: 900px;
+  margin-bottom: 1.5rem;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 0.8s var(--ease-snap) 0.4s forwards;
+}
+.shimmer {
+  background: linear-gradient(90deg, #a78bfa 0%, #ffffff 40%, #ffffff 60%, #22d3ee 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerText 3s linear infinite;
+}
+@keyframes shimmerText {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.hero-sub {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  font-weight: 300;
+  color: var(--neutral-400);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 0.8s var(--ease-snap) 0.6s forwards;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 0.8s var(--ease-snap) 0.8s forwards;
+}
+
+/* â•â•â• SHINY BORDER BUTTON â•â•â• */
+.shiny-btn {
+  position: relative;
+  padding: 1px;
+  border-radius: 9999px;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+}
+.shiny-btn::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(from 0deg, transparent 0%, var(--violet) 40%, var(--cyan) 50%, transparent 60%);
+  animation: spinBorder 4s linear infinite;
+}
+@keyframes spinBorder {
+  100% { transform: rotate(360deg); }
+}
+.shiny-btn-inner {
+  position: relative;
+  z-index: 1;
+  display: block;
+  background: #0a0a0a;
+  border-radius: 9999px;
+  padding: 1rem 2.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: background 0.3s;
+}
+.shiny-btn:hover .shiny-btn-inner { background: #111; }
+
+.hero-link {
+  color: var(--neutral-500);
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.hero-link:hover { color: var(--neutral-400); }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* â•â•â• TICKER â•â•â• */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(0,0,0,0.4);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 1rem 0;
+}
+.ticker {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: tickerScroll 35s linear infinite;
+}
+.ticker-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  flex-shrink: 0;
+}
+.ticker-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--neutral-500);
+  font-family: var(--font-sans);
+}
+.ticker-value {
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  letter-spacing: 0.02em;
+}
+.ticker-value.violet { color: var(--violet); }
+.ticker-value.cyan { color: var(--cyan); }
+.ticker-value.emerald { color: var(--emerald); }
+
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* â•â•â• SECTIONS â•â•â• */
+section { position: relative; }
+
+.section-pad {
+  padding: clamp(4rem, 10vw, 7rem) 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--violet);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+/* â•â•â• FEATURE GRID â•â•â• */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
+.feature-card {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  border-radius: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  transition: transform 0.5s var(--ease-snap), border-color 0.4s, box-shadow 0.4s;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.feature-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.feature-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(139,92,246,0.3);
+  box-shadow: 0 0 30px -10px rgba(139,92,246,0.25);
+}
+
+.feature-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 1.25rem;
+  transition: transform 0.4s var(--ease-snap);
+}
+.feature-card:hover .feature-icon { transform: scale(1.1) rotate(-3deg); }
+.feature-icon.violet-bg { background: rgba(139,92,246,0.15); }
+.feature-icon.cyan-bg { background: rgba(6,182,212,0.15); }
+.feature-icon.emerald-bg { background: rgba(16,185,129,0.15); }
+
+.feature-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.65rem;
+}
+.feature-card p {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--neutral-400);
+  line-height: 1.65;
+}
+
+/* â•â•â• PAIN SECTION â•â•â• */
+.pain-section {
+  background: linear-gradient(180deg, var(--bg) 0%, #080808 100%);
+  text-align: center;
+}
+.pain-text {
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 300;
+  color: var(--neutral-400);
+  line-height: 1.9;
+}
+.pain-text strong {
+  color: var(--white);
+  font-weight: 500;
+}
+.pain-text em {
+  color: var(--violet);
+  font-style: normal;
+  font-weight: 400;
+}
+.pain-highlight {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 2rem 0;
+  font-style: italic;
+}
+
+/* â•â•â• TARGET AUDIENCE â•â•â• */
+.target-section {
+  border-top: 1px solid var(--border);
+}
+.target-list {
+  list-style: none;
+  max-width: 700px;
+  margin-top: 2rem;
+}
+.target-list li {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--neutral-400);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  line-height: 1.6;
+}
+.target-list li::before {
+  content: 'â†’';
+  color: var(--violet);
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* â•â•â• EXPECT SECTION â•â•â• */
+.expect-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.expect-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.expect-card.visible { opacity: 1; transform: translateY(0); transition: all 0.6s var(--ease-snap); }
+.expect-num {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--violet);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.expect-card h4 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+.expect-card p {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--neutral-400);
+  line-height: 1.6;
+}
+
+/* â•â•â• BONUS â•â•â• */
+.bonus-section {
+  background: #050505;
+  border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.bonus-section .orb-violet { top: 20%; right: -10%; width: 300px; height: 300px; filter: blur(120px); }
+.bonus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.bonus-card {
+  background: rgba(139,92,246,0.04);
+  border: 1px solid rgba(139,92,246,0.12);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  transition: border-color 0.4s, box-shadow 0.4s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.bonus-card.visible { opacity: 1; transform: translateY(0); transition: all 0.6s var(--ease-snap); }
+.bonus-card:hover {
+  border-color: rgba(139,92,246,0.35);
+  box-shadow: 0 0 25px -10px rgba(139,92,246,0.2);
+}
+.bonus-tag {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--violet);
+  background: rgba(139,92,246,0.12);
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+.bonus-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+}
+.bonus-card p {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--neutral-400);
+  line-height: 1.65;
+}
+
+/* â•â•â• PRICING â•â•â• */
+.pricing-section {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.pricing-section .orb-cyan { bottom: 0; left: 20%; width: 350px; height: 350px; filter: blur(100px); }
+
+.pricing-compare {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--neutral-400);
+  max-width: 520px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+.pricing-compare strong { color: var(--white); font-weight: 500; }
+
+.pricing-box {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-light);
+  border-radius: 1.5rem;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3rem);
+  text-align: left;
+}
+.pricing-box ul {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+.pricing-box li {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--neutral-400);
+  padding: 0.55rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.pricing-box li .check {
+  color: var(--emerald);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.pricing-box li .gift {
+  color: var(--violet);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.price-row {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.price-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--neutral-500);
+  margin-bottom: 0.35rem;
+}
+.price-amount {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+.price-amount .currency { font-size: 0.5em; vertical-align: super; color: var(--neutral-400); }
+
+.pricing-cta {
+  display: block;
+  text-align: center;
+}
+
+/* â•â•â• FAQ â•â•â• */
+.faq-section {
+  border-top: 1px solid var(--border);
+}
+.faq-list {
+  max-width: 700px;
+  margin-top: 2.5rem;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: left;
+  padding: 1.25rem 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.faq-q::after {
+  content: '+';
+  font-size: 1.25rem;
+  color: var(--violet);
+  transition: transform 0.3s var(--ease-snap);
+  flex-shrink: 0;
+}
+.faq-item.open .faq-q::after { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease-snap), padding 0.3s;
+}
+.faq-item.open .faq-a { max-height: 200px; }
+.faq-a p {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--neutral-400);
+  line-height: 1.65;
+  padding-bottom: 1.25rem;
+}
+
+/* â•â•â• FOOTER â•â•â• */
+.footer {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  padding: 3rem 1.5rem 1.5rem;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-brand {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+.footer-copy {
+  font-size: 0.72rem;
+  color: var(--neutral-500);
+}
+.footer-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  color: var(--emerald);
+}
+.footer-status-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--emerald);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* â•â•â• MOBILE â•â•â• */
+@media (max-width: 768px) {
+  .nav { width: 94%; padding: 0.55rem 1rem; top: 0.75rem; }
+  .nav-logo-text { font-size: 0.9rem; }
+  .nav-cta { font-size: 0.65rem; padding: 0.45rem 1rem; }
+
+  .hero { padding: 7rem 1.25rem 3rem; min-height: auto; }
+  .hero h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
+
+  .features-grid, .expect-grid, .bonus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-pad { padding: 3.5rem 1.25rem; }
+  .pricing-box { padding: 1.75rem; }
+}
+
+@media (max-width: 400px) {
+  .hero h1 { font-size: 2rem; }
+  .hero-sub { font-size: 0.9rem; }
+  .shiny-btn-inner { padding: 0.85rem 1.8rem; font-size: 0.75rem; }
+}
+</style>
+<meta id="dcngeagmmhegagicpcmpinaoklddcgon"><style id="claude-agent-animation-styles">
+      @keyframes claude-pulse {
+        0% {
+          box-shadow: 
+            inset 0 0 10px rgba(217, 119, 87, 0.5),
+            inset 0 0 20px rgba(217, 119, 87, 0.3),
+            inset 0 0 30px rgba(217, 119, 87, 0.1);
         }
+        50% {
+          box-shadow: 
+            inset 0 0 15px rgba(217, 119, 87, 0.7),
+            inset 0 0 25px rgba(217, 119, 87, 0.5),
+            inset 0 0 35px rgba(217, 119, 87, 0.2);
+        }
+        100% {
+          box-shadow: 
+            inset 0 0 10px rgba(217, 119, 87, 0.5),
+            inset 0 0 20px rgba(217, 119, 87, 0.3),
+            inset 0 0 30px rgba(217, 119, 87, 0.1);
+        }
+      }
+    </style><style>[data-anim] { opacity: 1 !important; transform: none !important; transition: none !important; }</style></head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="https://lp365gratidao.vercel.app/#" class="nav-logo">
+    <span class="nav-logo-dot"></span>
+    <span class="nav-logo-text">365 Gratidão</span>
+  </a>
+  <a href="https://ggcheckout.app/checkout/v3/nG6VGgeukJpd3yMnBZXo" class="nav-cta">Começar Agora</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="orb orb-violet"></div>
+  <div class="orb orb-cyan"></div>
+
+  <div class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    Método comprovado · 365 dias
+  </div>
+
+  <h1>365 Frases Prontas de Gratidão: Um Ano Inteiro <span class="shimmer">Sem Travar</span></h1>
+
+  <p class="hero-sub">Escreva todos os dias por 365 dias usando frases prontas e direcionadas — mesmo que você nunca tenha conseguido manter constância.</p>
+
+  <div class="hero-actions">
+    <a href="https://ggcheckout.app/checkout/v3/nG6VGgeukJpd3yMnBZXo" class="shiny-btn">
+      <span class="shiny-btn-inner">Começar Meu Hábito de Gratidão</span>
+    </a>
+    <a href="https://lp365gratidao.vercel.app/#features" class="hero-link">Veja o que está incluso ↓</a>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker">
+    <div class="ticker-item"><span class="ticker-label">Frases</span><span class="ticker-value violet">365</span></div>
+    <div class="ticker-item"><span class="ticker-label">Minutos/Dia</span><span class="ticker-value cyan">5</span></div>
+    <div class="ticker-item"><span class="ticker-label">Bônus</span><span class="ticker-value emerald">3</span></div>
+    <div class="ticker-item"><span class="ticker-label">Garantia</span><span class="ticker-value">Total</span></div>
+    <div class="ticker-item"><span class="ticker-label">Acesso</span><span class="ticker-value violet">Imediato</span></div>
+    <div class="ticker-item"><span class="ticker-label">Formato</span><span class="ticker-value cyan">Digital</span></div>
+    <div class="ticker-item"><span class="ticker-label">Hábito</span><span class="ticker-value emerald">Automático</span></div>
+    <div class="ticker-item"><span class="ticker-label">Bloqueio</span><span class="ticker-value">Zero</span></div>
+    <!-- duplicado para loop -->
+    <div class="ticker-item"><span class="ticker-label">Frases</span><span class="ticker-value violet">365</span></div>
+    <div class="ticker-item"><span class="ticker-label">Minutos/Dia</span><span class="ticker-value cyan">5</span></div>
+    <div class="ticker-item"><span class="ticker-label">Bônus</span><span class="ticker-value emerald">3</span></div>
+    <div class="ticker-item"><span class="ticker-label">Garantia</span><span class="ticker-value">Total</span></div>
+    <div class="ticker-item"><span class="ticker-label">Acesso</span><span class="ticker-value violet">Imediato</span></div>
+    <div class="ticker-item"><span class="ticker-label">Formato</span><span class="ticker-value cyan">Digital</span></div>
+    <div class="ticker-item"><span class="ticker-label">Hábito</span><span class="ticker-value emerald">Automático</span></div>
+    <div class="ticker-item"><span class="ticker-label">Bloqueio</span><span class="ticker-value">Zero</span></div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="section-pad">
+    <span class="section-label">O que você vai desbloquear</span>
+    <h2 class="section-title">Tudo que você precisa para <span class="shimmer">nunca mais travar</span></h2>
+
+    <div class="features-grid">
+      <div class="feature-card visible" data-anim="" style="transition: all 0.7s var(--ease-snap);">
+        <div class="feature-icon violet-bg">📝</div>
+        <h3>365 Frases Prontas</h3>
+        <p>Um banco completo de frases que elimina o bloqueio da página em branco — e cria a sensação imediata de progresso e disciplina.</p>
+      </div>
+      <div class="feature-card visible" data-anim="" style="transition: all 0.7s var(--ease-snap);">
+        <div class="feature-icon cyan-bg">🧭</div>
+        <h3>Roteiro Diário de Escrita</h3>
+        <p>Uma sequência simples que guia sua mente todos os dias — reduzindo ansiedade e trazendo sensação de controle sobre a própria vida.</p>
+      </div>
+      <div class="feature-card visible" data-anim="" style="transition: all 0.7s var(--ease-snap);">
+        <div class="feature-icon emerald-bg">🔑</div>
+        <h3>Sistema Anti-Desistência</h3>
+        <p>Gatilhos mentais que mantêm você escrevendo mesmo sem vontade — criando consistência real e orgulho pessoal.</p>
+      </div>
+      <div class="feature-card visible" data-anim="" style="transition: all 0.7s var(--ease-snap);">
+        <div class="feature-icon violet-bg">⚡</div>
+        <h3>Modelo de 5 Minutos</h3>
+        <p>Um formato rápido que se encaixa em qualquer rotina — e gera sensação de missão cumprida logo pela manhã ou antes de dormir.</p>
+      </div>
+      <div class="feature-card visible" data-anim="" style="transition: all 0.7s var(--ease-snap);">
+        <div class="feature-icon cyan-bg">📈</div>
+        <h3>Evolução Emocional</h3>
+        <p>Um caminho estruturado que fortalece sua mente, sua fé e sua confiança — transformando gratidão em hábito automático.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain-section">
+  <div class="section-pad" style="text-align:center;">
+    <span class="section-label">A verdade que ninguém conta</span>
+    <h2 class="section-title">Nunca mais fique olhando para o caderno <span class="shimmer">sem saber o que escrever</span></h2>
+
+    <div class="pain-text" style="margin-top:2.5rem;">
+      <p>Quantas vezes você <strong>começou… e parou no terceiro dia?</strong></p>
+      <p style="margin-top:1rem;">Quantas vezes abriu o caderno… <strong>e travou?</strong></p>
+      <p style="margin-top:1.5rem;">Não por falta de vontade. Não por falta de fé.<br>Mas porque <strong>sua mente cansou de tentar sozinha.</strong></p>
+
+      <p class="pain-highlight">Não é a gratidão que falha.<br><em>É a falta de direção.</em></p>
+
+      <p>Sem um caminho claro, qualquer hábito morre.<br>Sem um roteiro simples, qualquer motivação desaparece.</p>
+      <p style="margin-top:1.5rem;"><strong>Por isso esse método existe.</strong><br>Para tirar você do improviso… e colocar sua vida <em>no automático.</em></p>
+      <p style="margin-top:1.5rem;">Aqui, você não precisa pensar. Não precisa inventar.<br>Você só precisa abrir… <strong>e escrever.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- TARGET -->
+<section class="target-section">
+  <div class="section-pad">
+    <span class="section-label">Para quem é</span>
+    <h2 class="section-title">Feito para quem quer <span class="shimmer">constância real</span></h2>
+
+    <ul class="target-list">
+      <li>Para quem começa com muita vontade… e desiste depois de alguns dias</li>
+      <li>Para quem quer criar o hábito da gratidão, mas trava na hora de escrever</li>
+      <li>Para quem sente que precisa de mais paz, foco e direção na vida</li>
+      <li>Para quem quer disciplina emocional sem esforço mental pesado</li>
+      <li>Para quem deseja constância real — não motivação passageira</li>
+    </ul>
+  </div>
+</section>
+
+<!-- EXPECT -->
+<section>
+  <div class="section-pad">
+    <span class="section-label">O que esperar</span>
+    <h2 class="section-title">Resultados que você vai <span class="shimmer">sentir</span></h2>
+
+    <div class="expect-grid">
+      <div class="expect-card visible" data-anim="" style="transition: all 0.7s var(--ease-snap);">
+        <span class="expect-num">1</span>
+        <div>
+          <h4>Hábito diário de escrita</h4>
+          <p>Sentir orgulho da própria disciplina e confiança crescente a cada dia.</p>
+        </div>
+      </div>
+      <div class="expect-card visible" data-anim="" style="transition: all 0.7s var(--ease-snap);">
+        <span class="expect-num">2</span>
+        <div>
+          <h4>Menos ansiedade</h4>
+          <p>Substituir reclamação automática por foco positivo e clareza mental.</p>
+        </div>
+      </div>
+      <div class="expect-card visible" data-anim="" style="transition: all 0.7s var(--ease-snap);">
+        <span class="expect-num">3</span>
+        <div>
+          <h4>Progresso real</h4>
+          <p>Perceber pequenas mudanças acontecendo e recuperar a sensação de controle.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUS -->
+<section class="bonus-section">
+  <div class="orb orb-violet"></div>
+  <div class="section-pad">
+    <span class="section-label">Inclusos gratuitamente</span>
+    <h2 class="section-title">Bônus <span class="shimmer">Exclusivos</span></h2>
+
+    <div class="bonus-grid">
+      <div class="bonus-card visible" data-anim="" style="transition: all 0.7s var(--ease-snap);">
+        <span class="bonus-tag">Bônus #1</span>
+        <h3>30 Perguntas Poderosas de Gratidão Profunda</h3>
+        <p>Perguntas criadas para acessar emoções que você nem percebe no dia a dia. Aprofundam sua consciência e aceleram a transformação emocional.</p>
+      </div>
+      <div class="bonus-card visible" data-anim="" style="transition: all 0.7s var(--ease-snap);">
+        <span class="bonus-tag">Bônus #2</span>
+        <h3>Calendário Visual de Hábitos</h3>
+        <p>Um sistema simples e visual que elimina a desculpa da desorganização. Acompanhe sua evolução dia após dia e sinta prazer em manter a sequência viva.</p>
+      </div>
+      <div class="bonus-card visible" data-anim="" style="transition: all 0.7s var(--ease-snap);">
+        <span class="bonus-tag">Bônus #3</span>
+        <h3>Ritual de Emergência Para Dias Difíceis</h3>
+        <p>Um protocolo rápido para quando bater desânimo, tristeza ou preguiça. Aplicação imediata. Resultado visível. O hábito sobrevive até nos dias ruins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-pad">
+    <span class="section-label">Investimento</span>
+    <h2 class="section-title">Tudo isso por <span class="shimmer">um valor único</span></h2>
+
+    <p class="pricing-compare">Se você fosse contratar um coach emocional, terapeuta ou curso de desenvolvimento pessoal… gastaria facilmente <strong>R$500, R$1.000 ou até R$2.000</strong>.</p>
+
+    <div class="pricing-box">
+      <ul>
+        <li><span class="check">✔</span> 365 Frases Prontas de Gratidão</li>
+        <li><span class="check">✔</span> Roteiro Diário de Escrita Automática</li>
+        <li><span class="check">✔</span> Sistema Anti-Desistência</li>
+        <li><span class="check">✔</span> Modelo de Escrita de 5 Minutos</li>
+        <li><span class="gift">🎁</span> 30 Perguntas Poderosas de Gratidão</li>
+        <li><span class="gift">🎁</span> Calendário Visual de Hábitos</li>
+        <li><span class="gift">🎁</span> Ritual de Emergência Para Dias Difíceis</li>
+      </ul>
+
+      <div class="price-row">
+        <div class="price-label">Tudo isso por apenas</div>
+        <div class="price-amount"><span class="currency">R$</span>37<span style="font-size:0.5em;color:var(--neutral-400)">,00</span></div>
+      </div>
+
+      <a href="https://ggcheckout.app/checkout/v3/nG6VGgeukJpd3yMnBZXo" class="shiny-btn pricing-cta" style="width:100%;">
+        <span class="shiny-btn-inner" style="display:block;text-align:center;width:100%;">Começar Agora Meu Hábito de Gratidão</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-pad">
+    <span class="section-label">Dúvidas frequentes</span>
+    <h2 class="section-title">Perguntas <span class="shimmer">Frequentes</span></h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Preciso ter experiência com escrita?</button>
+        <div class="faq-a"><p>Não. O método foi feito para qualquer pessoa — inclusive iniciantes.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Preciso escrever muito tempo por dia?</button>
+        <div class="faq-a"><p>Não. A média é de apenas 5 minutos.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">E se eu perder um dia?</button>
+        <div class="faq-a"><p>O sistema inclui estratégias para retomar rapidamente sem culpa ou frustração.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Isso realmente cria hábito?</button>
+        <div class="faq-a"><p>Sim. O método foi estruturado para gerar repetição simples — o fator número 1 na criação de hábitos.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Tem garantia?</button>
+        <div class="faq-a"><p>Sim. Se você não gostar, pode pedir reembolso dentro do prazo estabelecido.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">365 Gratidão</div>
+      <div class="footer-copy">© 2026 · Todos os direitos reservados</div>
+    </div>
+    <div class="footer-status">
+      <span class="footer-status-dot"></span>
+      Acesso Disponível
+    </div>
+  </div>
+</footer>
+
+<script>
+// FAQ toggle
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const siblings = Array.from(el.parentElement.querySelectorAll('[data-anim]'));
+      const idx = siblings.indexOf(el);
+      el.style.transitionDelay = `${idx * 0.12}s`;
+      el.style.transition = `all 0.7s var(--ease-snap)`;
+      el.classList.add('visible');
+      observer.unobserve(el);
     }
-    </script>
-</head>
-<body class="bg-[#1a1512]">
-    <div id="root"></div>
+  });
+}, { threshold: 0.15 });
 
-    <script type="text/babel" data-type="module">
-        import React, { useState, useEffect, useMemo, useRef } from 'react';
-        import { createRoot } from 'react-dom/client';
-        import { 
-            Sparkles, CheckCircle, Trophy, Save, Quote, LockKeyhole, 
-            UnlockKeyhole, PenLine, Calendar, HelpCircle, Zap, 
-            ChevronDown, ChevronUp, ArrowRight, BookOpen, ArrowLeft, 
-            Volume2, VolumeX, Leaf, Sun, Moon, Star, Heart, Feather,
-            Compass, TrendingUp, Activity, Users, Target, Award, RotateCcw, Check
-        } from 'lucide-react';
-        import { clsx } from 'clsx';
-        import { twMerge } from 'tailwind-merge';
+document.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
 
-        function cn(...inputs) {
-            return twMerge(clsx(inputs));
-        }
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
 
-        // --- CONSTANTES DO ORÁCULO ---
-        const FRASES_ORACULO = [
-            "Qual foi a pequena vitória de hoje que quase passou despercebida?",
-            "Agradeço pela oportunidade de recomeçar a cada novo amanhecer.",
-            "Sou grato pelas pessoas que trazem luz aos meus dias mais nublados.",
-            "Quem te fez sorrir hoje e por quê?",
-            "Que desafio você enfrentou hoje que te deixou mais forte?",
-            "Agradeço pela saúde que me permite experimentar a vida.",
-            "Qual foi a coisa mais bonita que você viu hoje?",
-            "Sou grato pelo alimento na minha mesa e pelo teto que me protege.",
-            "Que oportunidade de aprender algo novo você teve nas últimas 24 horas?",
-            "Agradeço pela paz de espírito que estou cultivando.",
-            "O que há de bom na sua vida que você já se acostumou e esqueceu de valorizar?",
-            "Qual abraço ou toque te fez sentir acolhido recentemente?",
-            "Se você escrevesse uma carta de agradecimento ao dia de hoje, o que diria?",
-            "Que parte do seu corpo trabalhou sem parar por você hoje?",
-            "Qual cheiro te trouxe conforto ou uma boa lembrança hoje?",
-            "Que conversa recente te fez pensar de um jeito diferente?",
-            "Qual rotina simples do seu dia torna tudo mais leve?",
-            "Que lugar no mundo te faz sentir em paz só de lembrar?",
-            "Qual foi a última vez que você riu de verdade? Do que foi?",
-            "Que permissão você se deu hoje que te fez bem?",
-            "Quem é a pessoa que mais te entende sem precisar de palavras?",
-            "Que mensagem ou ligação inesperada te alegrou nos últimos dias?",
-            "Se pudesse reviver um momento feliz com alguém, qual seria?",
-            "Qual professor, mentor ou amigo plantou uma semente que você colhe até hoje?",
-            "Quem te ensinou algo importante sem nem perceber que estava ensinando?",
-            "Que ato de generosidade você presenciou recentemente?",
-            "Qual amizade, mesmo de longe, te dá segurança só de saber que existe?",
-            "Quem você admira pela forma como enfrenta a vida?",
-            "Que palavras de encorajamento você ouviu e nunca esqueceu?",
-            "Por qual relação na sua vida você sente mais gratidão agora?",
-            "Quando foi a última vez que o céu te deixou sem palavras?",
-            "Que som da natureza te acalma instantaneamente?",
-            "Qual estação do ano te faz sentir mais vivo e por quê?",
-            "Que planta, árvore ou flor te chamou a atenção recentemente?",
-            "Qual foi o pôr do sol ou nascer do sol mais bonito que você lembra?",
-            "Que momento de silêncio te trouxe clareza nos últimos dias?",
-            "A chuva de hoje trouxe alguma sensação boa? Qual?",
-            "Que animal te arrancou um sorriso recentemente?",
-            "Qual paisagem você gostaria de ver de novo?",
-            "O que a natureza te ensinou sobre paciência?",
-            "Que versão passada de você ficaria orgulhosa de quem você é hoje?",
-            "Qual medo você já superou que antes parecia impossível?",
-            "Que cicatriz, física ou emocional, te lembra da sua resiliência?",
-            "Qual decisão difícil do passado se revelou acertada com o tempo?",
-            "Que hábito novo está mudando sua vida aos poucos?",
-            "Qual limite você aprendeu a colocar que te trouxe mais paz?",
-            "Que livro, filme ou música te transformou de alguma forma?",
-            "Qual fracasso te ensinou a lição mais valiosa da sua vida?",
-            "Que coragem pequena você teve hoje que ninguém viu?",
-            "Pelo que você vai agradecer ao olhar para trás daqui a um ano?",
-            "Qual foi o primeiro pensamento bom que você teve ao acordar hoje?",
-            "Que sabor te trouxe felicidade nas últimas horas?",
-            "Qual música tocou e pareceu ter sido feita para o seu momento?",
-            "Que gargalhada você deu que relaxou todo o seu corpo?",
-            "Qual foi o momento mais tranquilo do seu dia até agora?",
-            "Que pequeno luxo do dia a dia te faz sentir especial?",
-            "Qual foi a melhor notícia que você recebeu esta semana?",
-            "Que detalhe bonito você notou hoje que a maioria ignoraria?",
-            "Qual sensação de conforto você sentiu hoje — um café quente, um cobertor, um banho longo?",
-            "Se o dia de hoje fosse um presente, qual seria o laço que o embrulha?"
-        ];
 
-        const PERGUNTAS_PODEROSAS = [
-            "Qual foi a pequena vitória de hoje que quase passou despercebida?",
-            "Quem te fez sorrir hoje e por quê?",
-            "Que desafio você enfrentou hoje que te deixou mais forte?",
-            "Qual foi a coisa mais bonita que você viu hoje?",
-            "Que oportunidade de aprender algo novo você teve nas últimas 24 horas?",
-            "Pelo que você é grato(a) no seu corpo hoje?",
-            "Qual é a música ou som que te trouxe paz recentemente?",
-            "O que deu mais certo do que você esperava hoje?",
-            "Se pudesse agradecer a alguém do seu passado, quem seria?",
-            "Qual é o conforto material que você mais valoriza agora?",
-            "Qual talento ou habilidade sua te ajudou hoje?",
-            "Qual foi o gesto de gentileza (dado ou recebido) que marcou seu dia?",
-            "O que te deixa animado(a) para o dia de amanhã?",
-            "Qual erro você cometeu recentemente que trouxe uma lição valiosa?",
-            "Pelo que você é grato(a) na sua casa neste momento?",
-            "Qual foi o momento de maior paz que você sentiu hoje?",
-            "Qual habilidade sua você usou hoje, mas que às vezes nem valoriza tanto?",
-            "Qual refeição ou comidinha você mais curtiu nas últimas 24 horas?",
-            "Que detalhe da natureza chamou sua atenção hoje?",
-            "Se tivesse que se agradecer por algo que fez hoje, o que seria?",
-            "Que tecnologia ou ferramenta facilitou sua vida hoje?",
-            "Qual memória de infância traz um quentinho pro coração e te faz sentir gratidão?",
-            "Que frase, livro ou ideia te inspirou recentemente?",
-            "Em que momento você se sentiu mais útil ou produtivo(a) hoje?",
-            "Pelo que você é grato(a) no seu trabalho ou estudos?",
-            "Qual traço da sua personalidade te ajudou a superar um obstáculo hoje?",
-            "Quem é aquela pessoa que sempre te apoia, e por que você é grato(a) por ela hoje?",
-            "Qual som gostoso você ouviu hoje (chuva, riso, música)?",
-            "Qual privilégio que você tem hoje facilita muito a sua rotina?",
-            "O que te dá esperança para o futuro neste exato momento?"
-        ];
 
-        // --- CONSTANTES DA BÚSSOLA ---
-        const BUSSOLA_CATEGORIES = {
-            autoestima: {
-                id: 'autoestima', title: 'Autoestima', icon: Heart,
-                color: 'text-rose-400', bgColor: 'bg-rose-900/20', barColor: 'bg-rose-500',
-                affirmations: [
-                    "Eu sou suficiente exatamente como sou hoje.",
-                    "Meu valor não depende da opinião dos outros.",
-                    "Eu mereço amor, respeito e felicidade.",
-                    "Cada dia eu me torno uma versão melhor de mim.",
-                    "Eu me aceito com todas as minhas imperfeições.",
-                    "Minhas qualidades são únicas e valiosas.",
-                    "Eu confio na minha capacidade de superar desafios."
-                ]
-            },
-            prosperidade: {
-                id: 'prosperidade', title: 'Prosperidade', icon: TrendingUp,
-                color: 'text-emerald-400', bgColor: 'bg-emerald-900/20', barColor: 'bg-emerald-500',
-                affirmations: [
-                    "A abundância flui naturalmente para minha vida.",
-                    "Eu mereço prosperar em todas as áreas.",
-                    "Meu trabalho gera valor e é recompensado.",
-                    "Eu atraio oportunidades com minha energia positiva.",
-                    "O dinheiro é uma ferramenta que eu uso com sabedoria.",
-                    "Eu sou grato(a) por tudo que já conquistei.",
-                    "Novas portas se abrem para mim todos os dias."
-                ]
-            },
-            saude: {
-                id: 'saude', title: 'Saúde', icon: Activity,
-                color: 'text-blue-400', bgColor: 'bg-blue-900/20', barColor: 'bg-blue-500',
-                affirmations: [
-                    "Meu corpo é meu templo e eu cuido dele com amor.",
-                    "Cada célula do meu corpo vibra saúde e vitalidade.",
-                    "Eu escolho alimentos que nutrem meu corpo e mente.",
-                    "Meu sono é reparador e restaura toda a minha energia.",
-                    "Eu respiro profundamente e me conecto com a calma.",
-                    "Meu sistema imunológico é forte e me protege.",
-                    "Eu agradeço por cada batida do meu coração."
-                ]
-            },
-            relacionamentos: {
-                id: 'relacionamentos', title: 'Relacionamentos', icon: Users,
-                color: 'text-purple-400', bgColor: 'bg-purple-900/20', barColor: 'bg-purple-500',
-                affirmations: [
-                    "Eu atraio pessoas que me valorizam e respeitam.",
-                    "Meus relacionamentos são fontes de alegria e crescimento.",
-                    "Eu me comunico com clareza, empatia e amor.",
-                    "Sou grato(a) pelas pessoas que caminham comigo.",
-                    "Eu mereço relações saudáveis e equilibradas.",
-                    "Minha presença é um presente para quem está ao meu lado.",
-                    "Eu perdoo para me libertar, não para aceitar o inaceitável."
-                ]
-            },
-            proposito: {
-                id: 'proposito', title: 'Propósito', icon: Star,
-                color: 'text-amber-400', bgColor: 'bg-amber-900/20', barColor: 'bg-amber-500',
-                affirmations: [
-                    "Eu tenho um propósito que só eu posso cumprir.",
-                    "Minha vida tem significado e direção.",
-                    "Eu confio que estou exatamente onde preciso estar.",
-                    "Cada experiência me prepara para algo maior.",
-                    "Eu sigo minha intuição com fé e coragem.",
-                    "Meu propósito se revela um passo de cada vez.",
-                    "Eu faço do mundo um lugar melhor com minhas ações."
-                ]
-            }
-        };
 
-        const getEmojiForScore = (score) => {
-            if (score <= 3) return "🌪️";
-            if (score <= 6) return "🌱";
-            if (score <= 8) return "☀️";
-            return "✨";
-        };
 
-        // --- COMPONENTE BÚSSOLA ---
-        const VibrationCompass = () => {
-            const [step, setStep] = useState('assessment');
-            const [scores, setScores] = useState({
-                autoestima: 5, prosperidade: 5, saude: 5, relacionamentos: 5, proposito: 5
-            });
-            const [focusArea, setFocusArea] = useState(null);
-            const [planProgress, setPlanProgress] = useState([]);
-            const [isAnalyzing, setIsAnalyzing] = useState(false);
 
-            useEffect(() => {
-                const savedData = localStorage.getItem('bussolaVibracaoDataV2');
-                if (savedData) {
-                    try {
-                        const parsed = JSON.parse(savedData);
-                        setScores(parsed.scores);
-                        if (parsed.focusArea) {
-                            setFocusArea(parsed.focusArea);
-                            setPlanProgress(parsed.planProgress || []);
-                            setStep('plan');
-                        }
-                    } catch (e) { console.error(e); }
-                }
-            }, []);
 
-            const saveState = (newScores, newFocus, newProgress, newStep) => {
-                localStorage.setItem('bussolaVibracaoDataV2', JSON.stringify({
-                    scores: newScores, focusArea: newFocus, planProgress: newProgress
-                }));
-            };
-
-            const analyzeScores = () => {
-                setIsAnalyzing(true);
-                setStep('results');
-                setTimeout(() => {
-                    let lowestScore = 11;
-                    let lowestCategory = 'autoestima';
-                    Object.entries(scores).forEach(([key, value]) => {
-                        if (value < lowestScore) {
-                            lowestScore = value;
-                            lowestCategory = key;
-                        }
-                    });
-                    setFocusArea(lowestCategory);
-                    setIsAnalyzing(false);
-                    saveState(scores, lowestCategory, new Array(7).fill(false), 'results');
-                }, 1500);
-            };
-
-            const toggleDay = (index) => {
-                const newProgress = [...planProgress];
-                newProgress[index] = !newProgress[index];
-                setPlanProgress(newProgress);
-                saveState(scores, focusArea, newProgress, 'plan');
-            };
-
-            const reset = () => {
-                const initial = { autoestima: 5, prosperidade: 5, saude: 5, relacionamentos: 5, proposito: 5 };
-                setScores(initial);
-                setFocusArea(null);
-                setPlanProgress([]);
-                setStep('assessment');
-                localStorage.removeItem('bussolaVibracaoDataV2');
-            };
-
-            if (isAnalyzing) {
-                return (
-                    <div className="p-10 text-center flex flex-col items-center justify-center min-h-[300px] animate-reveal">
-                        <Compass size={48} className="text-amber-500 animate-spin mb-4" />
-                        <h4 className="text-[#e8ddd0] font-bold text-lg">Sintonizando sua energia...</h4>
-                    </div>
-                );
-            }
-
-            if (step === 'assessment') {
-                return (
-                    <div className="p-5 sm:p-6 bg-[#1e1a16] border-t border-[#3a3028] animate-reveal">
-                        <div className="mb-6">
-                            <h4 className="font-bold text-amber-400 text-base mb-1">Como você está hoje?</h4>
-                            <p className="text-xs text-[#8a7e6d]">Deslize para avaliar cada área da sua vida.</p>
-                        </div>
-                        <div className="space-y-4">
-                            {Object.entries(BUSSOLA_CATEGORIES).map(([key, cat]) => (
-                                <div key={key} className="bg-[#2a2420] p-4 rounded-xl border border-[#3a3028]">
-                                    <div className="flex justify-between items-center mb-3">
-                                        <div className="flex items-center gap-2">
-                                            <cat.icon size={16} className={cat.color} />
-                                            <span className="text-xs font-bold text-[#c4b8a8]">{cat.title}</span>
-                                        </div>
-                                        <span className="text-sm font-black text-amber-500">{scores[key]}</span>
-                                    </div>
-                                    <input 
-                                        type="range" min="0" max="10" value={scores[key]}
-                                        onChange={(e) => setScores({...scores, [key]: parseInt(e.target.value)})}
-                                        className="w-full accent-amber-600 h-1.5 bg-[#1a1512] rounded-full appearance-none cursor-pointer"
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                        <button onClick={analyzeScores} className="w-full mt-6 bg-amber-600 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2">
-                            Gerar Diagnóstico <ArrowRight size={16} />
-                        </button>
-                    </div>
-                );
-            }
-
-            if (step === 'results' || step === 'plan') {
-                const focusData = BUSSOLA_CATEGORIES[focusArea];
-                const completedDays = planProgress.filter(Boolean).length;
-
-                return (
-                    <div className="p-5 sm:p-6 bg-[#1e1a16] border-t border-[#3a3028] animate-reveal">
-                        <div className="bg-amber-900/20 border border-amber-800/30 rounded-2xl p-5 mb-6 text-center">
-                            <div className={`w-12 h-12 ${focusData.bgColor} ${focusData.color} rounded-full flex items-center justify-center mx-auto mb-3`}>
-                                <focusData.icon size={24} />
-                            </div>
-                            <h4 className="font-bold text-[#e8ddd0] mb-1">Foco de Expansão: {focusData.title}</h4>
-                            <p className="text-xs text-[#8a7e6d]">Reprogramando sua vibração em 7 dias.</p>
-                        </div>
-
-                        <div className="space-y-3 mb-6">
-                            {focusData.affirmations.map((aff, i) => {
-                                const isDone = planProgress[i];
-                                const isLocked = !isDone && i > 0 && !planProgress[i-1];
-                                return (
-                                    <button 
-                                        key={i} 
-                                        disabled={isLocked}
-                                        onClick={() => toggleDay(i)}
-                                        className={cn(
-                                            "w-full text-left p-4 rounded-xl border transition-all flex items-start gap-3",
-                                            isDone ? "bg-emerald-900/10 border-emerald-800/30 text-emerald-400 opacity-60" : 
-                                            isLocked ? "bg-[#2a2420] border-[#3a3028] text-[#5a5045] opacity-40 cursor-not-allowed" :
-                                            "bg-[#2a2420] border-amber-800/50 text-[#c4b8a8]"
-                                        )}
-                                    >
-                                        <div className={cn("w-5 h-5 rounded-full border flex items-center justify-center shrink-0 mt-0.5", isDone ? "bg-emerald-500 border-emerald-500 text-black" : "border-[#5a5045]")}>
-                                            {isDone ? <Check size={12} strokeWidth={4} /> : <span className="text-[10px]">{i+1}</span>}
-                                        </div>
-                                        <span className={cn("text-xs font-medium", isDone && "line-through")}>"{aff}"</span>
-                                    </button>
-                                );
-                            })}
-                        </div>
-
-                        {completedDays === 7 && (
-                            <div className="bg-emerald-900/20 border border-emerald-800/30 p-4 rounded-xl text-center mb-6">
-                                <Award className="mx-auto text-emerald-400 mb-2" size={32} />
-                                <p className="text-sm font-bold text-emerald-400">Jornada Concluída!</p>
-                            </div>
-                        )}
-
-                        <button onClick={reset} className="w-full py-3 text-[10px] font-bold text-[#8a7e6d] hover:text-amber-400 uppercase tracking-widest flex items-center justify-center gap-2 border-t border-[#3a3028]">
-                            <RotateCcw size={14} /> Recomeçar Diagnóstico
-                        </button>
-                    </div>
-                );
-            }
-            return null;
-        };
-
-        // --- APP PRINCIPAL ---
-        function App() {
-            const [isRevealed, setIsRevealed] = useState(false);
-            const [currentView, setCurrentView] = useState('home'); 
-            const [entry, setEntry] = useState("");
-            const [savedEntries, setSavedEntries] = useState({});
-            const [streak, setStreak] = useState(0);
-            const [isSaved, setIsSaved] = useState(false);
-            const [todayPhrase, setTodayPhrase] = useState("");
-            const [userName, setUserName] = useState("");
-            const [tempName, setTempName] = useState("");
-            const [showOnboarding, setShowOnboarding] = useState(false);
-            const [activeBonus, setActiveBonus] = useState(null);
-
-            const now = new Date();
-            const todayKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-            const jaEscreveuHoje = !!savedEntries[todayKey];
-
-            const sortearFrase = () => {
-                const randomIndex = Math.floor(Math.random() * FRASES_ORACULO.length);
-                setTodayPhrase(FRASES_ORACULO[randomIndex]);
-            };
-
-            useEffect(() => {
-                const storedData = localStorage.getItem('oraculo_gratidao');
-                sortearFrase();
-                if (storedData) {
-                    const parsed = JSON.parse(storedData);
-                    setSavedEntries(parsed.entries || {});
-                    setStreak(parsed.streak || 0);
-                    if (parsed.userName) setUserName(parsed.userName);
-                    else setShowOnboarding(true);
-                    if (parsed.entries && parsed.entries[todayKey]) setIsRevealed(true);
-                } else {
-                    setShowOnboarding(true);
-                }
-            }, [todayKey]);
-
-            const saveName = () => {
-                if (!tempName.trim()) return;
-                setUserName(tempName);
-                setShowOnboarding(false);
-                const storedData = JSON.parse(localStorage.getItem('oraculo_gratidao') || '{}');
-                localStorage.setItem('oraculo_gratidao', JSON.stringify({ ...storedData, userName: tempName }));
-            };
-
-            const getGreeting = () => {
-                const hour = new Date().getHours();
-                if (hour >= 5 && hour < 12) return "Bom dia";
-                if (hour >= 12 && hour < 18) return "Boa tarde";
-                return "Boa noite";
-            };
-
-            const saveEntry = () => {
-                if (!entry.trim()) return;
-                const textoAnterior = savedEntries[todayKey] || "";
-                const textoFinal = textoAnterior ? `${textoAnterior}\n\n${entry}` : entry;
-                const newEntries = { ...savedEntries, [todayKey]: textoFinal };
-                let newStreak = streak;
-                if (!savedEntries[todayKey]) newStreak += 1;
-                
-                const storedData = JSON.parse(localStorage.getItem('oraculo_gratidao') || '{}');
-                localStorage.setItem('oraculo_gratidao', JSON.stringify({ ...storedData, entries: newEntries, streak: newStreak, userName }));
-                
-                setSavedEntries(newEntries);
-                setStreak(newStreak);
-                setIsSaved(true);
-                setTimeout(() => {
-                    setIsSaved(false);
-                    setEntry(""); 
-                    setIsRevealed(false); 
-                    sortearFrase(); 
-                    setCurrentView('history');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }, 1200);
-            };
-
-            const injectQuestion = (question) => {
-                setEntry(prev => prev ? `${prev}\n\n${question} ` : `${question} `);
-                setIsRevealed(true); 
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            };
-
-            // --- SUB-COMPONENTS DE BÔNUS EXISTENTES ---
-            const HabitCalendar = () => {
-                const now = new Date();
-                const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
-                const firstDayOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).getDay();
-                return (
-                    <div className="p-5 bg-[#1e1a16] border-t border-[#3a3028] animate-reveal overflow-x-auto">
-                        <div className="grid grid-cols-7 gap-1.5 text-center mb-2 min-w-[240px]">
-                            {['D', 'S', 'T', 'Q', 'Q', 'S', 'S'].map((d, i) => (<span key={i} className="text-[10px] font-bold text-[#8a7e6d]">{d}</span>))}
-                            {Array.from({ length: firstDayOfMonth }).map((_, i) => <div key={i} />)}
-                            {Array.from({ length: daysInMonth }).map((_, i) => {
-                                const day = i + 1;
-                                const dateStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-                                const hasEntry = !!savedEntries[dateStr];
-                                return (
-                                    <div key={day} className={cn("aspect-square flex items-center justify-center rounded-lg text-xs font-bold", hasEntry ? "bg-amber-600 text-white" : "bg-[#2a2420] text-[#5a5045]")}>
-                                        {day}
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-                );
-            };
-
-            const QuestionsList = () => (
-                <div className="p-5 bg-[#1e1a16] border-t border-[#3a3028] animate-reveal">
-                    <div className="max-h-60 overflow-y-auto pr-2 custom-scrollbar space-y-2">
-                        {PERGUNTAS_PODEROSAS.map((q, i) => (
-                            <button key={i} onClick={() => injectQuestion(q)} className="w-full text-left p-3 rounded-xl bg-[#2a2420] text-xs font-medium text-[#c4b8a8] hover:bg-[#332c24] flex gap-3 transition-all">
-                                <span className="text-amber-600 font-mono">{(i+1).toString().padStart(2, '0')}</span>
-                                <span>{q}</span>
-                            </button>
-                        ))}
-                    </div>
-                </div>
-            );
-
-            const EmergencyRitual = () => {
-                const [isActive, setIsActive] = useState(false);
-                return (
-                    <div className="p-5 bg-[#1e1a16] border-t border-[#3a3028] animate-reveal text-center">
-                        <div className="mb-4 text-left">
-                            <h4 className="font-bold text-[#e8ddd0] mb-1">Meditação S.O.S 🧘‍♀️</h4>
-                            <p className="text-xs text-[#8a7e6d]">Acalme o sistema nervoso para liberar a gratidão.</p>
-                        </div>
-                        <div className="h-32 bg-[#151210] rounded-xl flex items-center justify-center mb-4 border border-[#2a2420]">
-                             <div className={cn("w-12 h-12 rounded-full bg-amber-600/40 transition-all duration-[4000ms]", isActive ? "scale-[2.5]" : "scale-1")} />
-                             <button onClick={() => setIsActive(!isActive)} className="absolute text-[10px] font-bold text-amber-200 bg-amber-900/60 px-4 py-2 rounded-full uppercase">
-                                {isActive ? "Parar" : "Iniciar Respiração"}
-                             </button>
-                        </div>
-                        <button onClick={() => injectQuestion("Apesar de hoje ter sido um dia difícil, eu agradeço por...")} className="w-full bg-amber-600 text-white font-bold text-xs py-3 rounded-xl flex items-center justify-center gap-2">
-                            <Zap size={14} /> Usar Comando S.O.S
-                        </button>
-                    </div>
-                );
-            };
-
-            const HistoryView = () => (
-                <div className="animate-reveal w-full pb-10">
-                    <button onClick={() => setCurrentView('home')} className="mb-6 flex items-center gap-2 text-xs font-bold text-amber-600 uppercase tracking-widest"><ArrowLeft size={16}/> Voltar</button>
-                    <h2 className="text-2xl font-display font-bold text-[#e8ddd0] mb-6">Meu Diário</h2>
-                    <div className="space-y-4">
-                        {Object.entries(savedEntries).sort((a,b) => b[0].localeCompare(a[0])).map(([date, text]) => (
-                            <div key={date} className="bg-[#231f1a] border border-[#3a3028] rounded-2xl p-5">
-                                <div className="text-[10px] font-bold text-amber-600 uppercase mb-2">{date}</div>
-                                <p className="text-sm text-[#c4b8a8] whitespace-pre-wrap">{text}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            );
-
-            return (
-                <div className="min-h-screen bg-[#1a1512] font-sans text-[#e8ddd0] py-10 px-4 flex flex-col items-center relative">
-                    <style dangerouslySetInnerHTML={{__html: `
-                        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,600;1,600&display=swap');
-                        .font-display { font-family: 'Cormorant Garamond', serif; }
-                        .font-sans { font-family: 'DM Sans', sans-serif; }
-                        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-                        .animate-reveal { animation: slideUp 0.5s ease-out forwards; }
-                        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-                        .custom-scrollbar::-webkit-scrollbar-thumb { background: #3a3028; border-radius: 4px; }
-                    `}} />
-
-                    <div className="w-full max-w-lg relative z-10">
-                        {showOnboarding ? (
-                            <div className="mt-20 animate-reveal text-center">
-                                <Feather size={40} className="text-amber-500 mx-auto mb-6" />
-                                <h1 className="text-3xl font-display italic mb-8">Bem-vindo à sua jornada de 365 dias</h1>
-                                <input type="text" value={tempName} onChange={(e) => setTempName(e.target.value)} placeholder="Seu nome..." className="w-full bg-[#231f1a] border border-[#3a3028] rounded-xl p-4 text-center text-lg mb-4 outline-none focus:border-amber-600" />
-                                <button onClick={saveName} className="w-full bg-amber-600 py-4 rounded-xl font-bold">Começar</button>
-                            </div>
-                        ) : currentView === 'history' ? (
-                            <HistoryView />
-                        ) : (
-                            <>
-                                <header className="flex justify-between items-center mb-10">
-                                    <div>
-                                        <div className="text-[10px] font-bold text-amber-600 uppercase tracking-widest">Oráculo 365</div>
-                                        <h1 className="font-display text-2xl italic">{getGreeting()}, {userName}</h1>
-                                    </div>
-                                    <div className="flex gap-2">
-                                        <div className="bg-[#2a2420] px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-bold">
-                                            <Trophy size={14} className="text-amber-500" /> {streak}
-                                        </div>
-                                        <button onClick={() => setCurrentView('history')} className="w-9 h-9 bg-[#2a2420] rounded-full flex items-center justify-center text-[#8a7e6d]"><BookOpen size={18}/></button>
-                                    </div>
-                                </header>
-
-                                {!isRevealed ? (
-                                    <div className="bg-[#231f1a] border border-[#3a3028] p-10 rounded-2xl text-center animate-reveal">
-                                        <LockKeyhole size={40} className="text-amber-900/40 mx-auto mb-6" />
-                                        <h2 className="text-2xl font-display italic mb-8">Sua inspiração do dia está pronta.</h2>
-                                        <button onClick={() => setIsRevealed(true)} className="w-full bg-amber-600 py-4 rounded-xl font-bold flex items-center justify-center gap-2">
-                                            <UnlockKeyhole size={18} /> Revelar Agora
-                                        </button>
-                                    </div>
-                                ) : (
-                                    <div className="space-y-6 animate-reveal">
-                                        <div className="bg-gradient-to-br from-amber-700 to-orange-900 p-8 rounded-2xl relative overflow-hidden">
-                                            <Quote className="absolute -right-4 -top-4 w-24 h-24 text-white/5 rotate-12" />
-                                            <p className="text-xl font-display italic text-amber-50">"{todayPhrase}"</p>
-                                        </div>
-                                        <div className="bg-[#231f1a] border border-[#3a3028] p-5 rounded-2xl">
-                                            <textarea value={entry} onChange={(e) => setEntry(e.target.value)} placeholder="O que aqueceu seu coração hoje?" className="w-full h-40 bg-transparent outline-none resize-none text-[#c4b8a8] text-lg" />
-                                            <button onClick={saveEntry} disabled={!entry.trim()} className={cn("w-full py-4 rounded-xl font-bold mt-4 flex items-center justify-center gap-2 transition-all", isSaved ? "bg-emerald-600" : "bg-amber-600")}>
-                                                {isSaved ? <><CheckCircle size={18}/> Salvo!</> : <><Save size={18}/> Salvar no Diário</>}
-                                            </button>
-                                        </div>
-                                    </div>
-                                )}
-
-                                <div className="mt-10 space-y-3">
-                                    <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#5a5045] text-center mb-4">Bônus de Expansão</h3>
-                                    
-                                    {/* NOVO BÔNUS: BÚSSOLA DA VIBRAÇÃO */}
-                                    <div className="bg-[#231f1a] border border-[#3a3028] rounded-xl overflow-hidden">
-                                        <button onClick={() => setActiveBonus(activeBonus === 'bussola' ? null : 'bussola')} className="w-full flex items-center justify-between p-4 hover:bg-[#2a2420]">
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 rounded-lg bg-indigo-900/30 text-indigo-400 flex items-center justify-center border border-indigo-800/20"><Compass size={16}/></div>
-                                                <div className="text-left">
-                                                    <h4 className="font-bold text-[#c4b8a8] text-xs">Bússola da Vibração</h4>
-                                                    <p className="text-[9px] text-[#5a5045]">Bônus Premium · Sintonize sua frequência</p>
-                                                </div>
-                                            </div>
-                                            {activeBonus === 'bussola' ? <ChevronUp size={16}/> : <ChevronDown size={16}/>}
-                                        </button>
-                                        {activeBonus === 'bussola' && <VibrationCompass />}
-                                    </div>
-
-                                    {/* OUTROS BÔNUS */}
-                                    <div className="bg-[#231f1a] border border-[#3a3028] rounded-xl overflow-hidden">
-                                        <button onClick={() => setActiveBonus(activeBonus === 'perguntas' ? null : 'perguntas')} className="w-full flex items-center justify-between p-4 hover:bg-[#2a2420]">
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 rounded-lg bg-violet-900/30 text-violet-400 flex items-center justify-center border border-violet-800/20"><HelpCircle size={16}/></div>
-                                                <div className="text-left"><h4 className="font-bold text-[#c4b8a8] text-xs">30 Perguntas Poderosas</h4><p className="text-[9px] text-[#5a5045]">Mergulhe mais fundo na gratidão</p></div>
-                                            </div>
-                                            {activeBonus === 'perguntas' ? <ChevronUp size={16}/> : <ChevronDown size={16}/>}
-                                        </button>
-                                        {activeBonus === 'perguntas' && <QuestionsList />}
-                                    </div>
-
-                                    <div className="bg-[#231f1a] border border-[#3a3028] rounded-xl overflow-hidden">
-                                        <button onClick={() => setActiveBonus(activeBonus === 'calendario' ? null : 'calendario')} className="w-full flex items-center justify-between p-4 hover:bg-[#2a2420]">
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 rounded-lg bg-emerald-900/30 text-emerald-400 flex items-center justify-center border border-emerald-800/20"><Calendar size={16}/></div>
-                                                <div className="text-left"><h4 className="font-bold text-[#c4b8a8] text-xs">Mapa de Constância</h4><p className="text-[9px] text-[#5a5045]">Seu progresso visual</p></div>
-                                            </div>
-                                            {activeBonus === 'calendario' ? <ChevronUp size={16}/> : <ChevronDown size={16}/>}
-                                        </button>
-                                        {activeBonus === 'calendario' && <HabitCalendar />}
-                                    </div>
-
-                                    <div className="bg-[#231f1a] border border-[#3a3028] rounded-xl overflow-hidden">
-                                        <button onClick={() => setActiveBonus(activeBonus === 'ritual' ? null : 'ritual')} className="w-full flex items-center justify-between p-4 hover:bg-[#2a2420]">
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 rounded-lg bg-amber-900/30 text-amber-400 flex items-center justify-center border border-amber-800/20"><Zap size={16}/></div>
-                                                <div className="text-left"><h4 className="font-bold text-[#c4b8a8] text-xs">Ritual S.O.S</h4><p className="text-[9px] text-[#5a5045]">Para dias nublados</p></div>
-                                            </div>
-                                            {activeBonus === 'ritual' ? <ChevronUp size={16}/> : <ChevronDown size={16}/>}
-                                        </button>
-                                        {activeBonus === 'ritual' && <EmergencyRitual />}
-                                    </div>
-                                </div>
-                            </>
-                        )}
-                        <footer className="mt-10 text-center pb-10 text-[10px] text-[#3a3028] font-bold uppercase tracking-widest">© Oráculo da Gratidão · 365 Dias</footer>
-                    </div>
-                </div>
-            );
-        }
-
-        const root = createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-</body>
-</html>
+<div><div class="css-1daqxe2 ant-app css-var-root"></div></div></body></html>
